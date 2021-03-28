@@ -10,4 +10,4 @@ Jose Hurtado - 200107806
 
 < Link a la documentación >
 
-Información relevante
+Información relevanten
