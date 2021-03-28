@@ -1,11 +1,10 @@
 # lab-02
 * IMPORTANTE * !
 * 
-Reemplanzar información
 
-< Nombre del estudiante 1 > - < Código del estudiante 1 >
+Jorge Benavides - 200107351
 
-< Nombre del estudiante 2 > - < Código del estudiante 2 >
+Jose Hurtado - 200107806
 
 < Link a la API en el servidor (Heroku o el servicio de tu preferencia) >
 
