@@ -217,3 +217,717 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 4692)
 
 
+Started GET "/" for 127.0.0.1 at 2021-03-28 13:12:03 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 26.5ms | Allocations: 476)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 95.0ms | Allocations: 5677)
+Completed 200 OK in 133ms (Views: 119.1ms | ActiveRecord: 0.0ms | Allocations: 8847)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-28 13:12:06 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 714)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 60.6ms | Allocations: 4917)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | Allocations: 7867)
+Completed 200 OK in 80ms (Views: 66.4ms | ActiveRecord: 0.7ms | Allocations: 16570)
+
+
+Started GET "/api/v1/tasks%20" for 127.0.0.1 at 2021-03-28 13:25:54 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/tasks%20"):
+  
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 13:27:43 -0500
+  
+ActionController::RoutingError (uninitialized constant Api::V1::TasksController
+Did you mean?  Api::V1::TaskController):
+  
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 13:28:28 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#index as */*
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 3449)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/api/v1/tasks_controller.rb:9:in `index'
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 13:28:37 -0500
+Processing by Api::V1::TasksController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1083)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/api/v1/tasks_controller.rb:9:in `index'
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 13:29:37 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 1.7ms | ActiveRecord: 1.0ms | Allocations: 3055)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-28 13:57:07 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 245)
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 632)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 107.3ms | Allocations: 5371)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 123.6ms | Allocations: 10472)
+Completed 200 OK in 190ms (Views: 127.2ms | ActiveRecord: 6.5ms | Allocations: 20966)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-03-28 13:57:21 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Crear"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (9.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "hurtadojosmanuel@gmail.com"], ["encrypted_password", "$2a$12$gMuu7Q7Kxa5F8nd1ZGNrKOSwBfLKS0iG1UbcoY9mRK1iTfy4pN0zm"], ["confirmation_token", "uroDKfF95ug1QpPTFSfc"], ["confirmation_sent_at", "2021-03-28 18:57:22.345034"], ["created_at", "2021-03-28 18:57:22.344931"], ["updated_at", "2021-03-28 18:57:22.344931"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 9.2ms | Allocations: 292)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 12.9ms
+Delivered mail 6060d1928929c_17e5477c-454@elementalark.mail (3176.4ms)
+Date: Sun, 28 Mar 2021 13:57:22 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: hurtadojosmanuel@gmail.com
+Message-ID: <6060d1928929c_17e5477c-454@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome hurtadojosmanuel@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=uroDKfF95ug1QpPTFSfc">Confirm my account</a></p>
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 3767ms (ActiveRecord: 15.6ms | Allocations: 30685)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-28 13:57:25 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 202)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3136)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 4294)
+
+
+Started GET "/users/confirmation?confirmation_token=[FILTERED]" for 127.0.0.1 at 2021-03-28 13:57:45 -0500
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "uroDKfF95ug1QpPTFSfc"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["confirmed_at", "2021-03-28 18:57:45.318060"], ["updated_at", "2021-03-28 18:57:45.318235"], ["id", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 63ms (ActiveRecord: 1.6ms | Allocations: 7311)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-28 13:57:45 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 289)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 72.7ms | Allocations: 1997)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 76.0ms | Allocations: 5129)
+Completed 200 OK in 78ms (Views: 77.3ms | ActiveRecord: 0.0ms | Allocations: 6561)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-28 13:57:48 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 206)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3999)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 4681)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-28 13:57:51 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", "2021-03-28 18:57:51.935506"], ["updated_at", "2021-03-28 18:57:51.935815"], ["id", 1]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 232ms (ActiveRecord: 2.6ms | Allocations: 8750)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-28 13:57:51 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1007)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3852)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.2ms | Allocations: 4307)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-03-28 13:57:53 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 953)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3864)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 6178)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2021-03-28 13:57:54 -0500
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/new.html.erb within layouts/application (Duration: 23.1ms | Allocations: 989)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 3814)
+Completed 200 OK in 41ms (Views: 27.0ms | ActiveRecord: 0.4ms | Allocations: 8299)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2021-03-28 13:57:59 -0500
+Processing by TasksController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"description"=>"Hola Lola", "user_id"=>"1"}, "commit"=>"Crear"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:14:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:14:in `create'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Hola Lola"], ["user_id", 1], ["created_at", "2021-03-28 18:57:59.966778"], ["updated_at", "2021-03-28 18:57:59.966778"]]
+  ↳ app/controllers/tasks_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 46ms (ActiveRecord: 1.6ms | Allocations: 10507)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-03-28 13:57:59 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 802)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3640)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.1ms | Allocations: 5224)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 13:58:17 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:10:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 1038)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2021-03-28 13:58:43 -0500
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 395)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3212)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.1ms | Allocations: 4801)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2021-03-28 13:58:55 -0500
+Processing by TasksController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"description"=>"jasjaja y que tetatle", "user_id"=>"1"}, "commit"=>"Crear"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:14:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:14:in `create'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "jasjaja y que tetatle"], ["user_id", 1], ["created_at", "2021-03-28 18:58:55.833147"], ["updated_at", "2021-03-28 18:58:55.833147"]]
+  ↳ app/controllers/tasks_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 15ms (ActiveRecord: 1.5ms | Allocations: 6863)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-03-28 13:58:55 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 841)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3670)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.2ms | Allocations: 5252)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 13:58:59 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:10:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms | Allocations: 1116)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-28 14:02:03 -0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 233)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1253)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 4209)
+Completed 200 OK in 21ms (Views: 9.2ms | ActiveRecord: 0.7ms | Allocations: 12438)
+
+
+Started GET "/api/v1/tasks/1" for 127.0.0.1 at 2021-03-28 14:06:43 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:45:in `set_task'
+Completed 200 OK in 14ms (Views: 0.8ms | ActiveRecord: 1.5ms | Allocations: 6810)
+
+
+Started GET "/api/v1/tasks/3" for 127.0.0.1 at 2021-03-28 14:11:58 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:45:in `set_task'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1106)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=3):
+  
+app/controllers/api/v1/tasks_controller.rb:45:in `set_task'
+Started GET "/api/v1/tasks/2" for 127.0.0.1 at 2021-03-28 14:12:12 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:45:in `set_task'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 884)
+
+
+Started POST "/api/v1/tasks?description=Test" for 127.0.0.1 at 2021-03-28 14:29:51 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"Test"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms | Allocations: 2422)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks?description=Test" for 127.0.0.1 at 2021-03-28 14:31:35 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"Test"}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 2422)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks?description=Test&tittle=null" for 127.0.0.1 at 2021-03-28 14:36:39 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"Test", "tittle"=>"null"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 588)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  tittle
+               controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 14:38:26 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"xd"}
+Completed 400 Bad Request in 1ms (Allocations: 562)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 14:39:50 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"xd"}
+Completed 400 Bad Request in 0ms (Allocations: 581)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 14:40:34 -0500
+Processing by Api::V1::TasksController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 578)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 14:40:56 -0500
+Processing by Api::V1::TasksController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 575)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 14:41:18 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#create as */*
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms | Allocations: 2418)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks?task=sexooooooooo" for 127.0.0.1 at 2021-03-28 14:41:53 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"task"=>"sexooooooooo"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1717)
+
+
+  
+NoMethodError (undefined method `permit' for "sexooooooooo":String):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks?tittle=sexooooooooo&description=SEXXXXXX" for 127.0.0.1 at 2021-03-28 14:45:12 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"tittle"=>"sexooooooooo", "description"=>"SEXXXXXX"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 586)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  tittle
+               controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks?tittle=sexooooooooo&description=SEXXXXXX" for 127.0.0.1 at 2021-03-28 14:45:57 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"tittle"=>"sexooooooooo", "description"=>"SEXXXXXX"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms | Allocations: 2425)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  tittle
+               controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 14:46:33 -0500
+Processing by Api::V1::TasksController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 581)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 14:46:48 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"xd"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 563)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started POST "/api/v1/tasks?description=test" for 127.0.0.1 at 2021-03-28 14:49:38 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"test"}
+Completed 400 Bad Request in 2ms (Allocations: 1039)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task
+Did you mean?  controller
+               description
+               action):
+  
+app/controllers/api/v1/tasks_controller.rb:36:in `task_params'
+app/controllers/api/v1/tasks_controller.rb:15:in `create'
+Started GET "/tasks/2" for 127.0.0.1 at 2021-03-28 15:08:46 -0500
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37:in `set_task'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/show.html.erb:8
+  Rendered tasks/show.html.erb within layouts/application (Duration: 14.0ms | Allocations: 1124)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 6183)
+Completed 200 OK in 51ms (Views: 31.9ms | ActiveRecord: 1.4ms | Allocations: 21714)
+
+
+Started POST "/api/v1/tasks?description=sexoooooooooooooo" for 127.0.0.1 at 2021-03-28 15:22:03 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"sexoooooooooooooo"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:18:in `create'
+  [1m[36mTask Create (2.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "sexoooooooooooooo"], ["user_id", 1], ["created_at", "2021-03-28 20:22:03.152829"], ["updated_at", "2021-03-28 20:22:03.152829"]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:18:in `create'
+Completed 200 OK in 37ms (Views: 0.4ms | ActiveRecord: 6.3ms | Allocations: 20785)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 15:22:37 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 1357)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-03-28 15:23:09 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1399)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 6440)
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 0.3ms | Allocations: 10586)
+
+
+Started GET "/tasks/3" for 127.0.0.1 at 2021-03-28 15:23:11 -0500
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37:in `set_task'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/show.html.erb:8
+  Rendered tasks/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 966)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 3805)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.4ms | Allocations: 6213)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-03-28 15:23:12 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 904)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3735)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 5322)
+
+
+Started POST "/api/v1/tasks?description=Teta%20TLE%20del%20jorge%20xd" for 127.0.0.1 at 2021-03-28 15:23:32 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"Teta TLE del jorge xd"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:18:in `create'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Teta TLE del jorge xd"], ["user_id", 1], ["created_at", "2021-03-28 20:23:32.720853"], ["updated_at", "2021-03-28 20:23:32.720853"]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:18:in `create'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 5.8ms | Allocations: 6342)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-03-28 15:23:36 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 968)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3798)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.1ms | Allocations: 5380)
+
+
+Started GET "/tasks/4" for 127.0.0.1 at 2021-03-28 15:23:37 -0500
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37:in `set_task'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/show.html.erb:8
+  Rendered tasks/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 722)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3560)
+Completed 200 OK in 11ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 5686)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 15:23:40 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 1356)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-03-28 15:24:06 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 968)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 3797)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.2ms | Allocations: 5382)
+
+
+Started DELETE "/api/v1/tasks/4" for 127.0.0.1 at 2021-03-28 15:31:50 -0500
+Processing by Api::V1::TasksController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:44:in `set_task'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:44:in `set_task'
+No template found for Api::V1::TasksController#destroy, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 0.4ms | Allocations: 6716)
+
+
+Started DELETE "/api/v1/tasks/3" for 127.0.0.1 at 2021-03-28 15:32:47 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/rav/Documents/Universidad/Backend/entrega-02-j-j/app/controllers/api/v1/tasks_controller.rb:29: syntax error, unexpected label
+...           render json: status: 200
+...                        ^~~~~~~
+):
+  
+app/controllers/api/v1/tasks_controller.rb:29: syntax error, unexpected label
+app/controllers/api/v1/tasks_controller.rb:29: syntax error, unexpected label
+app/controllers/api/v1/tasks_controller.rb:29: syntax error, unexpected label
+Started DELETE "/api/v1/tasks/3" for 127.0.0.1 at 2021-03-28 15:33:11 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:44:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:28:in `destroy'
+  [1m[36mTask Destroy (1.7ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:28:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:28:in `destroy'
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 3.4ms | Allocations: 10811)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-03-28 15:33:27 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1419)
+
+
