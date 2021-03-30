@@ -1,7 +1,7 @@
 module Api
     module V1
         class TasksController < ApiController
-            # before_action :authenticate_user!
+            before_action :authenticate_user!
             before_action :set_task, only: [:show, :destroy]
 
             #GET api/v1/tasks
@@ -14,7 +14,7 @@ module Api
             #POST api/v1/tasks
             def create
               @task=Task.new(task_params)
-              @task.user_id = User.first.id
+              @task.user_id = @current_user_id
               # TODO: Implement auth
               if @task.save
                 render json: @task, status: 200
