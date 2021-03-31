@@ -4588,3 +4588,13 @@ Processing by Api::V1::SessionsController#create as */*
 Completed 200 OK in 217ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 8977)
 
 
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-30 21:13:55 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 205ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 8936)
+
+
