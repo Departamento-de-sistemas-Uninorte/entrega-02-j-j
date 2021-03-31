@@ -7,10 +7,9 @@ module Api
             def create
                 build_resource(sign_up_params)
                 if resource.save
-                    resource.confirm
                     render json: resource, status: :created
                 else
-                    render error: {error: "No se pudo crear eso"}
+                    render json: {error: "No se pudo crear la cuenta"}
                 end
             end
 

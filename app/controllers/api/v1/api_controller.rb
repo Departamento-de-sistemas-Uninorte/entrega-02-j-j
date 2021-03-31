@@ -13,7 +13,7 @@ module Api
                         @current_user_id = jwt_payload['id']
                     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => error
                         #render json: {error: error.message}
-                        render json: {error: "Token erronea"}
+                        render json: {error: "Token erronea"} 
                     end
                 end
             end

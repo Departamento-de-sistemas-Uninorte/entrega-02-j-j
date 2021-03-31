@@ -4646,3 +4646,46 @@ Processing by Api::V1::SessionsController#create as */*
 Completed 422 Unprocessable Entity in 207ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 8816)
 
 
+Started GET "/api/v1/signup" for 127.0.0.1 at 2021-03-31 13:54:31 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/signup"):
+  
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-03-31 13:54:39 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"mjhurtado@uninorte.edu.co", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu.co"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu.co"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "mjhurtado@uninorte.edu.co"], ["encrypted_password", "$2a$12$lgNzfiSG1OUH4HRaqIES/.t8A7Ljr0ucgGPNX.wh161zPvgnhwGBm"], ["confirmation_token", "tXsJBshVZzjwGunGebs2"], ["confirmation_sent_at", "2021-03-31 18:54:39.575900"], ["created_at", "2021-03-31 18:54:39.575778"], ["updated_at", "2021-03-31 18:54:39.575778"], ["jti", "e78fc746-a6fb-44f9-9a78-fc287850d1c8"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 2.8ms | Allocations: 607)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 11.8ms
+Delivered mail 6064c56f98d35_18f238408982a@elementalark.mail (2216.9ms)
+Date: Wed, 31 Mar 2021 13:54:39 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mjhurtado@uninorte.edu.co
+Message-ID: <6064c56f98d35_18f238408982a@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mjhurtado@uninorte.edu.co!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=tXsJBshVZzjwGunGebs2">Confirm my account</a></p>
+
+Completed 201 Created in 2477ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 31016)
+
+
