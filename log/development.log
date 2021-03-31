@@ -4689,3 +4689,266 @@ Content-Transfer-Encoding: 7bit
 Completed 201 Created in 2477ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 31016)
 
 
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-03-31 14:00:37 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"mjhurtado@uninorte.edu.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "mjhurtado@uninorte.edu.com"], ["encrypted_password", "$2a$12$GZeq2nAVMyWvPaphnVEhsu.LVyI7p79Z5oQkrd6p.HC9SiAaKsEha"], ["confirmation_token", "xzTRMUpqQqZEKjVUM_3w"], ["confirmation_sent_at", "2021-03-31 19:00:37.722849"], ["created_at", "2021-03-31 19:00:37.722711"], ["updated_at", "2021-03-31 19:00:37.722711"], ["jti", "67a14afc-538b-4063-b99e-641256291b08"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 1.4ms | Allocations: 1246)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 8.4ms
+Delivered mail 6064c6d5b649a_1dc5385426449@elementalark.mail (1725.8ms)
+Date: Wed, 31 Mar 2021 14:00:37 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mjhurtado@uninorte.edu.com
+Message-ID: <6064c6d5b649a_1dc5385426449@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mjhurtado@uninorte.edu.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=xzTRMUpqQqZEKjVUM_3w">Confirm my account</a></p>
+
+Completed 201 Created in 1966ms (Views: 0.4ms | ActiveRecord: 2.2ms | Allocations: 34496)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-03-31 14:01:37 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"mjhurtado@uninorte.edu", "password"=>"[FILTERED]"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "mjhurtado@uninorte.edu"], ["encrypted_password", "$2a$12$ZgRzTYGdouCQqPYV0Io6XuEMafwT0UF1hn4VF.v/cKmoyInAJVr32"], ["confirmation_token", "s5yZKSh2c7_y1ucHAfh5"], ["confirmation_sent_at", "2021-03-31 19:01:38.138103"], ["created_at", "2021-03-31 19:01:38.137998"], ["updated_at", "2021-03-31 19:01:38.137998"], ["jti", "4a221333-d388-4464-b6c5-aef7a3390bde"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.4ms | Allocations: 241)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 2.7ms
+Delivered mail 6064c71224441_1dc54a602652e@elementalark.mail (1589.8ms)
+Date: Wed, 31 Mar 2021 14:01:38 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mjhurtado@uninorte.edu
+Message-ID: <6064c71224441_1dc54a602652e@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mjhurtado@uninorte.edu!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=s5yZKSh2c7_y1ucHAfh5">Confirm my account</a></p>
+
+Completed 201 Created in 1802ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 21999)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-03-31 14:02:07 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"mjhurtado@uninorte.edu", "password"=>"[FILTERED]"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 203ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 12136)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-03-31 14:02:14 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"mjhurtado@uninorte.eduw", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.eduw"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.eduw"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "mjhurtado@uninorte.eduw"], ["encrypted_password", "$2a$12$MzaW2uDUdygPtGAf/z5qPOBIJIoAywYnl5akLvCM3lB0mZ2yiot6C"], ["confirmation_token", "39xYfQyRTPDTKt7xgmFs"], ["confirmation_sent_at", "2021-03-31 19:02:14.518858"], ["created_at", "2021-03-31 19:02:14.518738"], ["updated_at", "2021-03-31 19:02:14.518738"], ["jti", "d89b25ba-5097-484b-aac1-16b5d9a31825"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.3ms | Allocations: 134)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 2.0ms
+Delivered mail 6064c736828fb_1dc568ec266a2@elementalark.mail (1739.7ms)
+Date: Wed, 31 Mar 2021 14:02:14 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mjhurtado@uninorte.eduw
+Message-ID: <6064c736828fb_1dc568ec266a2@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mjhurtado@uninorte.eduw!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=39xYfQyRTPDTKt7xgmFs">Confirm my account</a></p>
+
+Completed 201 Created in 1950ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 15092)
+
+
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-31 14:03:56 -0500
+  
+SyntaxError (/home/rav/Documents/Universidad/Backend/entrega-02-j-j/app/controllers/api/v1/tasks_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/tasks_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/tasks_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/tasks_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-31 14:04:19 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum vel dui id eleifend. Proin vestibulum lobortis neque, non facilisis mi. Suspendisse interdum felis id enim rhoncus, sit amet consectetur nibh molestie. Nam ullamcorper cursus ligula eget vulputate molestie."}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum vel dui id eleifend. Proin vestibulum lobortis neque, non facilisis mi. Suspendisse interdum felis id enim rhoncus, sit amet consectetur nibh molestie. Nam ullamcorper cursus ligula eget vulputate molestie."], ["user_id", 8], ["created_at", "2021-03-31 19:04:19.470112"], ["updated_at", "2021-03-31 19:04:19.470112"]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+Completed 201 Created in 30ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 19466)
+
+
+Started GET "/api/v1/tasks/1" for 127.0.0.1 at 2021-03-31 14:05:14 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"email"=>"jorgeok.2000@gmail.com", "password"=>"[FILTERED]", "id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:47:in `set_task'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:47:in `set_task'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 5312)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:05:18 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"email"=>"jorgeok.2000@gmail.com", "password"=>"[FILTERED]", "id"=>"1000"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:47:in `set_task'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1187)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=1000):
+  
+app/controllers/api/v1/tasks_controller.rb:47:in `set_task'
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:07:15 -0500
+  
+SyntaxError (/home/rav/Documents/Universidad/Backend/entrega-02-j-j/app/controllers/api/v1/tasks_controller.rb:55: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/api/v1/tasks_controller.rb:55: syntax error, unexpected `end', expecting end-of-input
+app/controllers/api/v1/tasks_controller.rb:55: syntax error, unexpected `end', expecting end-of-input
+app/controllers/api/v1/tasks_controller.rb:55: syntax error, unexpected `end', expecting end-of-input
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:07:42 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:48:in `set_task'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:48:in `set_task'
+Filter chain halted as :set_task rendered or redirected
+Completed 404 Not Found in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 3232)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:08:11 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+Filter chain halted as :process_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 594)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:08:16 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:48:in `set_task'
+Filter chain halted as :set_task rendered or redirected
+Completed 404 Not Found in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1185)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:08:32 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 0ms (Allocations: 215)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:08:37 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+Filter chain halted as :process_token rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 597)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:09:30 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+Filter chain halted as :process_token rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | Allocations: 613)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:10:28 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+Filter chain halted as :process_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 241)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:13:18 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+Filter chain halted as :process_token rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 243)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:13:26 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+Filter chain halted as :process_token rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | Allocations: 565)
+
+
+Started GET "/api/v1/tasks/1000" for 127.0.0.1 at 2021-03-31 14:13:41 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1000"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:48:in `set_task'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:48:in `set_task'
+Filter chain halted as :set_task rendered or redirected
+Completed 404 Not Found in 10ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3208)
+
+

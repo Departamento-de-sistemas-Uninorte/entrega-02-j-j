@@ -7,9 +7,9 @@ module Api
             def create
                 build_resource(sign_up_params)
                 if resource.save
-                    render json: resource, status: :created
+                    render json: "Cuenta para "+resource.email+" creada. Por favor, confirme su cuenta.", status: :created
                 else
-                    render json: {error: "No se pudo crear la cuenta"}
+                    render json: {error: "No se pudo crear la cuenta"}, status: :unprocessable_entity
                 end
             end
 

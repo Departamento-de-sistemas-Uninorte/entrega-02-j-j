@@ -13,8 +13,10 @@ module Api
                         @current_user_id = jwt_payload['id']
                     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => error
                         #render json: {error: error.message}
-                        render json: {error: "Token erronea"} 
+                        render json: {error: "Token erronea"}, status: 401
                     end
+                else
+                    render json: "La petición no contiene el header de 'Authorization'", status: 401
                 end
             end
 
