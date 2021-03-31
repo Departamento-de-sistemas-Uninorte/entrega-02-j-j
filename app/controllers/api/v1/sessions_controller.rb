@@ -9,9 +9,9 @@ module Api
             
                 if user && user.valid_password?(user_params[:password])
                   token = user.generate_jwt
-                  render json: token.to_json
+                  render json: {'Token de acceso': token}
                 else
-                  render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
+                  render json: { error: 'Correo o contraseña invalidos' }, status: :unprocessable_entity
                 end
             end
             

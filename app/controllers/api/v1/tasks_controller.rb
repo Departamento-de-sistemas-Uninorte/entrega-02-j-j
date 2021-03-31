@@ -17,16 +17,18 @@ module Api
               @task.user_id = @current_user_id
               # TODO: Implement auth
               if @task.save
-                render json: @task, status: 200
+                render json: @task, status: 201
               else
-                render error: { error: "No se pudo hacer eso", status: 418}
+                render json: { error: "No se pudo crear el tweet"}
               end    
             end
 
             #DEL api/v1/tasks
             def destroy       
-              @task.destroy
-              render json: { status: 200}
+              if @task.destroy
+                render json: {info: "Tweet borrado"}, status: 200
+              else
+                render json: {error: "No se pudo borrar el tweet"}
             end
 
             #GET api/v1/tasks/:id

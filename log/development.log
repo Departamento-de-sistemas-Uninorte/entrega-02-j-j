@@ -4598,3 +4598,51 @@ Processing by Api::V1::SessionsController#create as */*
 Completed 200 OK in 205ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 8936)
 
 
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-31 13:36:34 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 216ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 10977)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-31 13:36:56 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 200ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 9029)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-31 13:37:14 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 198ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 8945)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-31 13:37:41 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 189ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 984)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-31 13:38:52 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 207ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 8816)
+
+
