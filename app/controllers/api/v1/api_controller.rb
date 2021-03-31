@@ -9,7 +9,7 @@ module Api
             def process_token
                 if request.headers['Authorization'].present?
                     begin
-                        jwt_payload = JWT.decode(request.headers['Authorization'].split(" ")[0], Rails.application.secrets.secret_key_base).first
+                        jwt_payload = JWT.decode(request.headers['Authorization'].split(" ")[0], Rails.application.secret_key_base).first
                         @current_user_id = jwt_payload['id']
                     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => error
                         render json: {error: error.message}

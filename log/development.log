@@ -4563,3 +4563,28 @@ Processing by Api::V1::TasksController#show as */*
 Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 1.0ms | Allocations: 5278)
 
 
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-30 21:08:32 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 500 Internal Server Error in 269ms (ActiveRecord: 1.2ms | Allocations: 13652)
+
+
+  
+NameError (undefined local variable or method `d96680fa521ef374be1ccb9986da93a7124e917370a56e0fb890ac185ce900425309b2e76f4be35e57674974445e087cd90b70122fe1f679071bc215bb16469' for #<User id: 5, email: "test@hotmail.com", name: nil, username: nil, created_at: "2021-03-30 19:37:24.646119000 +0000", updated_at: "2021-03-30 19:37:26.737414000 +0000", jti: "70adf7d3-6c49-48d2-a545-98be49d57835">):
+  
+app/models/user.rb:17:in `generate_jwt'
+app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-30 21:10:02 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 217ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 8977)
+
+
