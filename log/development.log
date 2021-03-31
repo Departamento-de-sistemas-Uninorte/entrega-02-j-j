@@ -4952,3 +4952,43 @@ Filter chain halted as :set_task rendered or redirected
 Completed 404 Not Found in 10ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3208)
 
 
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-31 14:22:10 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum vel dui id eleifend. Proin vestibulum lobortis neque, non facilisis mi. Suspendisse interdum felis id enim rhoncus, sit amet consectetur nibh molestie. Nam ullamcorper cursus ligula eget vulputate molestie.222222"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+Completed 422 Unprocessable Entity in 36ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 17177)
+
+
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-31 14:22:18 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum vel dui id eleifend. Proin vestibulum lobortis neque, non facilisis mi. Suspendisse interdum felis id enim rhoncus, sit amet consectetur nibh molestie. Nam ullamcorper cursus ligula eget vulputate molestie.\n"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3160)
+
+
+Started POST "/api/v1/tasks" for 127.0.0.1 at 2021-03-31 14:22:23 -0500
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"description"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum vel dui id eleifend. Proin vestibulum lobortis neque, non facilisis mi. Suspendisse interdum felis id enim rhoncus, sit amet consectetur nibh molestie. Nam ullamcorper cursus ligula eget vulputate molestie."}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum vel dui id eleifend. Proin vestibulum lobortis neque, non facilisis mi. Suspendisse interdum felis id enim rhoncus, sit amet consectetur nibh molestie. Nam ullamcorper cursus ligula eget vulputate molestie."], ["user_id", 8], ["created_at", "2021-03-31 19:22:23.216828"], ["updated_at", "2021-03-31 19:22:23.216828"]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:19:in `create'
+Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 5878)
+
+

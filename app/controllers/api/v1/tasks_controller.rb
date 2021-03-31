@@ -18,6 +18,8 @@ module Api
               # TODO: Implement auth
               if @task.save
                 render json: {info: "Tweet creado", tweet: @task}, status: 201
+              elsif @task.description.length > 280
+                render json: { error: "Excede el limite de 280 caracteres"}, status: :unprocessable_entity
               else
                 render json: { error: "No se pudo crear el tweet"}, status: :unprocessable_entity
               end    
