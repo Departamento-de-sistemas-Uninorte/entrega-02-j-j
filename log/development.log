@@ -4463,3 +4463,103 @@ Processing by Api::V1::TasksController#destroy as */*
 Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 3.2ms | Allocations: 4883)
 
 
+Started GET "/api/v1/auth/login" for 127.0.0.1 at 2021-03-30 20:48:34 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth/login"):
+  
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-03-30 20:48:41 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 230ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 10862)
+
+
+Started GET "/api/v1/tasks/1" for 127.0.0.1 at 2021-03-30 20:49:00 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:44:in `set_task'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 1.3ms | Allocations: 5046)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-03-30 20:49:09 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for 127.0.0.1 at 2021-03-30 20:49:12 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/" for 127.0.0.1 at 2021-03-30 20:49:16 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 24.8ms | Allocations: 243)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 136.8ms | Allocations: 5861)
+Completed 200 OK in 158ms (Views: 156.9ms | ActiveRecord: 0.0ms | Allocations: 7230)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-30 20:49:19 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 712)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.8ms | Allocations: 4758)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 7861)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 9904)
+
+
+Started GET "/api/v1/tasks/1" for 127.0.0.1 at 2021-03-30 20:57:01 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:44:in `set_task'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:44:in `set_task'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 4961)
+
+
+Started GET "/api/v1/tasks/1" for 127.0.0.1 at 2021-03-30 20:57:05 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 3564)
+
+
+  
+NameError (undefined local variable or method `e' for #<Api::V1::TasksController:0x0000000000bf90>):
+  
+app/controllers/api/v1/api_controller.rb:15:in `rescue in process_token'
+app/controllers/api/v1/api_controller.rb:11:in `process_token'
+Started GET "/api/v1/tasks/1" for 127.0.0.1 at 2021-03-30 20:58:52 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms (Allocations: 3206)
+
+
+  
+NameError (undefined local variable or method `error' for #<Api::V1::TasksController:0x0000000000e010>):
+  
+app/controllers/api/v1/api_controller.rb:15:in `rescue in process_token'
+app/controllers/api/v1/api_controller.rb:11:in `process_token'
+Started GET "/api/v1/tasks/1" for 127.0.0.1 at 2021-03-30 21:00:50 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1"}
+Filter chain halted as :process_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.1ms | Allocations: 617)
+
+
+Started GET "/api/v1/tasks/1" for 127.0.0.1 at 2021-03-30 21:00:59 -0500
+Processing by Api::V1::TasksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:44:in `set_task'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tasks_controller.rb:44:in `set_task'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 1.0ms | Allocations: 5278)
+
+

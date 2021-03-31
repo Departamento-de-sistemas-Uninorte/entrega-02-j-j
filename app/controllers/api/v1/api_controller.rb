@@ -11,8 +11,8 @@ module Api
                     begin
                         jwt_payload = JWT.decode(request.headers['Authorization'].split(" ")[0], Rails.application.secrets.secret_key_base).first
                         @current_user_id = jwt_payload['id']
-                    rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
-                        render json: {xd: request.headers['Authorization'].split(" ")[0]}
+                    rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => error
+                        render json: {error: error.message}
                     end
                 end
             end
