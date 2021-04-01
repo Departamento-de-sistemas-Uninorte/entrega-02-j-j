@@ -8,7 +8,8 @@ module Api
                 user = User.find_by_email(user_params[:email])
             
                 if user && user.valid_password?(user_params[:password])
-                  token = user.generate_jwt
+                  user.update_column(:jti, User.generate_jti)
+                  token = user.generate_jwt(user.jti)
                   render json: {'Token de acceso': token}
                 else
                   render json: { error: 'Correo o contraseña invalidos' }, status: :unprocessable_entity
@@ -48,7 +49,19 @@ module Api
             end
         
             def respond_to_on_destroy
-                head :no_content
+
+                if request.headers['Authorization'].present?
+                        begin
+                            jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[0], Rails.application.secret_key_base).first
+                            @current_user_id = jwt_payload['id']
+                            User.revoke_jwt(jwt_payload, User.find(@current_user_id))
+                            render json: "Token eliminado correctamente"
+                        rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => error
+                            render json: {error: "Token erronea"}, status: 401
+                        end
+                else
+                    render json: "La petición no contiene el header de 'Authorization'", status: 401
+                end
             end
         end
     end

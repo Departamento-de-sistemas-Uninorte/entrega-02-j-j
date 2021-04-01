@@ -12,8 +12,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :jwt_authenticatable, jwt_revocation_strategy: self
 
-  def generate_jwt
-    JWT.encode({id: id, exp: 60.days.from_now.to_i}, Rails.application.secret_key_base)
+  def generate_jwt(jti)
+    JWT.encode({id: id, exp: 60.days.from_now.to_i, jti: jti}, Rails.application.secret_key_base)
   end
   
 end

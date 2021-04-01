@@ -4992,3 +4992,278 @@ Processing by Api::V1::TasksController#create as */*
 Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 5878)
 
 
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-01 16:05:34 -0500
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 231ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 10967)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:05:56 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 0.7ms | Allocations: 6097)
+
+
+Started DELETE "/api/v1/auth/logout" for 127.0.0.1 at 2021-04-01 16:06:34 -0500
+Processing by Api::V1::SessionsController#destroy as */*
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 154ms (ActiveRecord: 0.0ms | Allocations: 1688)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:06:40 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 2058)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:06:45 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 28ms (Views: 19.5ms | ActiveRecord: 0.2ms | Allocations: 2042)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:06:45 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 2027)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:06:46 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 2041)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:06:46 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 2040)
+
+
+Started DELETE "/api/v1/auth/logout" for 127.0.0.1 at 2021-04-01 16:07:30 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/rav/Documents/Universidad/Backend/entrega-02-j-j/app/controllers/api/v1/sessions_controller.rb:55: syntax error, unexpected '}', expecting =>
+...Token eliminado correctamente"}
+...                              ^
+):
+  
+app/controllers/api/v1/sessions_controller.rb:55: syntax error, unexpected '}', expecting =>
+app/controllers/api/v1/sessions_controller.rb:55: syntax error, unexpected '}', expecting =>
+app/controllers/api/v1/sessions_controller.rb:55: syntax error, unexpected '}', expecting =>
+Started DELETE "/api/v1/auth/logout" for 127.0.0.1 at 2021-04-01 16:07:46 -0500
+Processing by Api::V1::SessionsController#destroy as */*
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 29)
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 132ms (Views: 130.3ms | Allocations: 2687)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:07:58 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 23ms (Views: 4.5ms | ActiveRecord: 1.3ms | Allocations: 14590)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:07:59 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 2043)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:08:01 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 2041)
+
+
+Started DELETE "/api/v1/auth/logout" for 127.0.0.1 at 2021-04-01 16:08:07 -0500
+Processing by Api::V1::SessionsController#destroy as */*
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 26)
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 653)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-01 16:08:44 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 194ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2962)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:09:30 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 2027)
+
+
+Started DELETE "/api/v1/auth/logout" for 127.0.0.1 at 2021-04-01 16:09:35 -0500
+Processing by Api::V1::SessionsController#destroy as */*
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 26)
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 473)
+
+
+Started DELETE "/api/v1/auth/logout" for 127.0.0.1 at 2021-04-01 16:10:09 -0500
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `block in respond_to_on_destroy'
+  [1m[36mUser Update (5.8ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "23e40ac0-6551-4d50-9ac2-f44fbef7d565"], ["id", 5]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `block in respond_to_on_destroy'
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.9ms | Allocations: 1745)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:10:16 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+Filter chain halted as :process_token rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 911)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-01 16:13:47 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 198ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 9011)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:13:53 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.5ms | Allocations: 5563)
+
+
+Started DELETE "/api/v1/auth/logout" for 127.0.0.1 at 2021-04-01 16:14:00 -0500
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:56:in `respond_to_on_destroy'
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "18017c4a-a5f4-47a1-9bff-943d11d10c21"], ["id", 5]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:56:in `respond_to_on_destroy'
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 3398)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:14:02 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+Filter chain halted as :process_token rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 908)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-01 16:15:32 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "6f0dec30-589e-473e-88cf-a6aec6e42856"], ["id", 5]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 203ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 11497)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-01 16:15:40 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "2d4e4c96-0870-40de-af27-d830caed6b39"], ["id", 5]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 187ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2416)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:15:45 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+Filter chain halted as :process_token rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1105)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:15:53 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 5356)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:16:42 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:11:in `index'
+Completed 200 OK in 16ms (Views: 4.5ms | ActiveRecord: 1.0ms | Allocations: 12995)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-01 16:16:44 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"test@hotmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Update (2.9ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "4ef57d05-dbe1-4cb7-b3fc-e1ca941b0649"], ["id", 5]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 197ms (Views: 0.2ms | ActiveRecord: 3.7ms | Allocations: 2011)
+
+
+Started GET "/api/v1/tasks" for 127.0.0.1 at 2021-04-01 16:16:46 -0500
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+Filter chain halted as :process_token rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 889)
+
+

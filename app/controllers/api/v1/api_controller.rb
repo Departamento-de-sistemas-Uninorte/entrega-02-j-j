@@ -8,12 +8,19 @@ module Api
             # Check for auth headers - if present, decode or send unauthorized response (called always to allow current_user)
             def process_token
                 if request.headers['Authorization'].present?
+                    
                     begin
                         jwt_payload = JWT.decode(request.headers['Authorization'].split(" ")[0], Rails.application.secret_key_base).first
                         @current_user_id = jwt_payload['id']
                     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => error
                         #render json: {error: error.message}
                         render json: {error: "Token erronea"}, status: 401
+                    end
+                    unless(User.jwt_revoked?(jwt_payload, User.find(jwt_payload['id'])))
+                        @current_user_id = jwt_payload['id']
+                     else
+                        @current_user_id = nil
+                        render json: "Token expirada", status: 401
                     end
                 else
                     render json: "La petición no contiene el header de 'Authorization'", status: 401
