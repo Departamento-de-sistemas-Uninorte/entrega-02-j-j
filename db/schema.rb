@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2021_04_28_154152) do
     t.integer "follow_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_id", "user_id"], name: "index_follows_on_follow_id_and_user_id", unique: true
+    t.index ["user_id", "follow_id"], name: "index_follows_on_user_id_and_follow_id", unique: true
   end
 
   create_table "tasks", force: :cascade do |t|
