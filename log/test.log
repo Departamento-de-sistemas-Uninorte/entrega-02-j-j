@@ -4742,3 +4742,986 @@ Processing by Api::V1::TaskController#destroy as HTML
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 550)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows"[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "follows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "follow_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_follows_on_follow_id_and_user_id" ON "follows" ("follow_id", "user_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_follows_on_user_id_and_follow_id" ON "follows" ("user_id", "follow_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tasks"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "tittle" varchar, "description" text, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "name" varchar, "username" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "jti" varchar NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_jti" ON "users" ("jti")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210428154152)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210303175158),
+(20210303235559),
+(20210330184819);
+
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-04-29 03:27:53.395589"], ["updated_at", "2021-04-29 03:27:53.395589"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "3f4016f7105050f9c1eca7b1ea12b1a1aac43b36"], ["created_at", "2021-04-29 03:27:53.398301"], ["updated_at", "2021-04-29 03:27:53.398301"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["email", "test1@testing.com"], ["encrypted_password", "$2a$04$x0Hu2s9gcckZ3ldG9zlxeukspKsP3DX6FzqagHmsuqfTh/OigMEpC"], ["confirmed_at", "2021-04-29 03:28:30.052321"], ["name", "TestUser 1"], ["username", "test1"], ["created_at", "2021-04-29 03:28:30.052214"], ["updated_at", "2021-04-29 03:28:30.052192"], ["jti", "2201189a-55c7-4d75-acca-5ebb6b1d9d49"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["description", "Prueba 1"], ["user_id", 1], ["created_at", "2021-04-29 03:28:30.058736"], ["updated_at", "2021-04-29 03:28:30.058725"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 1"], ["user_id", 1], ["created_at", "2021-04-29 03:28:30.096960"], ["updated_at", "2021-04-29 03:28:30.096960"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 14ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 2380)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "test2@testing.com"], ["encrypted_password", "$2a$04$wSLC914qpcnWMqkw07iuEeQ3IcLOGjoPOdX6WxhjIyfC2hAL8FyDC"], ["confirmed_at", "2021-04-29 03:28:30.150592"], ["name", "TestUser 2"], ["username", "test2"], ["created_at", "2021-04-29 03:28:30.150569"], ["updated_at", "2021-04-29 03:28:30.150558"], ["jti", "93d6ea68-3e8b-41fc-857f-9a3f237edf90"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["description", "Prueba 2"], ["user_id", 2], ["created_at", "2021-04-29 03:28:30.153097"], ["updated_at", "2021-04-29 03:28:30.153089"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 2"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 2"], ["user_id", 2], ["created_at", "2021-04-29 03:28:30.156477"], ["updated_at", "2021-04-29 03:28:30.156477"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1075)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["email", "test3@testing.com"], ["encrypted_password", "$2a$04$v4OA0JP.mXwLpc9tCSsFbOwRhOAECt48Sm3xjb8hOvKoIdwnqyYzG"], ["confirmed_at", "2021-04-29 03:28:30.160549"], ["name", "TestUser 3"], ["username", "test3"], ["created_at", "2021-04-29 03:28:30.160529"], ["updated_at", "2021-04-29 03:28:30.160518"], ["jti", "7587ecb2-364c-47c4-b8a0-7ee8ab63e87d"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["description", "Prueba 3"], ["user_id", 3], ["created_at", "2021-04-29 03:28:30.162858"], ["updated_at", "2021-04-29 03:28:30.162851"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 3"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 3"], ["user_id", 3], ["created_at", "2021-04-29 03:28:30.165385"], ["updated_at", "2021-04-29 03:28:30.165385"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["email", "test4@testing.com"], ["encrypted_password", "$2a$04$rhFPOafOHAoQm4r1/zRoHOb475qxsKF.vG4sY8xtwdbsRF6NUK0We"], ["confirmed_at", "2021-04-29 03:28:30.168603"], ["name", "TestUser 4"], ["username", "test4"], ["created_at", "2021-04-29 03:28:30.168576"], ["updated_at", "2021-04-29 03:28:30.168563"], ["jti", "d0b810ad-8cb8-4f72-8d18-78891a077350"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["description", "Prueba 4"], ["user_id", 4], ["created_at", "2021-04-29 03:28:30.171057"], ["updated_at", "2021-04-29 03:28:30.171050"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 4"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 4"], ["user_id", 4], ["created_at", "2021-04-29 03:28:30.173377"], ["updated_at", "2021-04-29 03:28:30.173377"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["email", "test5@testing.com"], ["encrypted_password", "$2a$04$jnqGPA8zQV4fACJWYdNUrOOnqrYY2Etxe50u56VaGaZbosOMF7W8a"], ["confirmed_at", "2021-04-29 03:28:30.176417"], ["name", "TestUser 5"], ["username", "test5"], ["created_at", "2021-04-29 03:28:30.176399"], ["updated_at", "2021-04-29 03:28:30.176391"], ["jti", "2183ff4c-5b91-4764-8f55-6918b8e7d224"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["description", "Prueba 5"], ["user_id", 5], ["created_at", "2021-04-29 03:28:30.178414"], ["updated_at", "2021-04-29 03:28:30.178408"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 5"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 5"], ["user_id", 5], ["created_at", "2021-04-29 03:28:30.180569"], ["updated_at", "2021-04-29 03:28:30.180569"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1074)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["email", "test6@testing.com"], ["encrypted_password", "$2a$04$LjZn2IKUuB9O7T7jGuTbv.0OLIHvDIsugb5rxz8Diy1dHyJtRpGKe"], ["confirmed_at", "2021-04-29 03:28:30.183505"], ["name", "TestUser 6"], ["username", "test6"], ["created_at", "2021-04-29 03:28:30.183487"], ["updated_at", "2021-04-29 03:28:30.183479"], ["jti", "7521ffb6-0e22-4380-b67e-8c63c3463ea3"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["description", "Prueba 6"], ["user_id", 6], ["created_at", "2021-04-29 03:28:30.185774"], ["updated_at", "2021-04-29 03:28:30.185767"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 6"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 6"], ["user_id", 6], ["created_at", "2021-04-29 03:28:30.188300"], ["updated_at", "2021-04-29 03:28:30.188300"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 694)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["email", "test7@testing.com"], ["encrypted_password", "$2a$04$1gHfQpCGt9UyEd4KwUjjNeATBCmlc83cvRxhv9VOBI16k4dD5PKMi"], ["confirmed_at", "2021-04-29 03:28:30.193036"], ["name", "TestUser 7"], ["username", "test7"], ["created_at", "2021-04-29 03:28:30.193017"], ["updated_at", "2021-04-29 03:28:30.193008"], ["jti", "3c62aa83-98bc-4d4e-9607-37f6ae31667b"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["description", "Prueba 7"], ["user_id", 7], ["created_at", "2021-04-29 03:28:30.194784"], ["updated_at", "2021-04-29 03:28:30.194777"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 7"], ["user_id", 7], ["created_at", "2021-04-29 03:28:30.197042"], ["updated_at", "2021-04-29 03:28:30.197042"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 581)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["email", "test8@testing.com"], ["encrypted_password", "$2a$04$fdRY/TZa85v1zoiHgx/uTePv.yPhtmaqsPNFcW.vTOMmgscZcbzXu"], ["confirmed_at", "2021-04-29 03:28:30.201150"], ["name", "TestUser 8"], ["username", "test8"], ["created_at", "2021-04-29 03:28:30.201128"], ["updated_at", "2021-04-29 03:28:30.201115"], ["jti", "ae6aae79-8c58-4d39-8758-49cceca821d2"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["description", "Prueba 8"], ["user_id", 8], ["created_at", "2021-04-29 03:28:30.203528"], ["updated_at", "2021-04-29 03:28:30.203520"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 8"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 8"], ["user_id", 8], ["created_at", "2021-04-29 03:28:30.205961"], ["updated_at", "2021-04-29 03:28:30.205961"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 581)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["email", "test9@testing.com"], ["encrypted_password", "$2a$04$1GDOwy8TbmgOdVCskBHILu45/A7WmZYeJwwpevVWj5NVEiz.s.BVq"], ["confirmed_at", "2021-04-29 03:28:30.210053"], ["name", "TestUser 9"], ["username", "test9"], ["created_at", "2021-04-29 03:28:30.210034"], ["updated_at", "2021-04-29 03:28:30.210026"], ["jti", "bd67aef0-15aa-4af6-a240-7d061e62b277"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["description", "Prueba 9"], ["user_id", 9], ["created_at", "2021-04-29 03:28:30.211822"], ["updated_at", "2021-04-29 03:28:30.211816"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 9"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 9"], ["user_id", 9], ["created_at", "2021-04-29 03:28:30.214005"], ["updated_at", "2021-04-29 03:28:30.214005"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1074)
+Processing by Api::V1::TaskController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 581)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 10], ["email", "test10@testing.com"], ["encrypted_password", "$2a$04$WnngS.ZEf5oqejF1KXBK/ODbEh/irIY9Nzo71RETnrQOykpZ31CXG"], ["confirmed_at", "2021-04-29 03:28:30.218094"], ["name", "TestUser 10"], ["username", "test10"], ["created_at", "2021-04-29 03:28:30.218071"], ["updated_at", "2021-04-29 03:28:30.218061"], ["jti", "b7d5a475-3f3a-4393-8757-93abc3fd2bb1"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["description", "Prueba 10"], ["user_id", 10], ["created_at", "2021-04-29 03:28:30.220394"], ["updated_at", "2021-04-29 03:28:30.220387"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 10"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 10"], ["user_id", 10], ["created_at", "2021-04-29 03:28:30.222758"], ["updated_at", "2021-04-29 03:28:30.222758"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#destroy as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Destroy (0.1ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 10]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 771)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 11], ["email", "test11@testing.com"], ["encrypted_password", "$2a$04$pHJeMzkMLVjGF.rY2QEObeB.EELVBHiwfMs8t/yhnBUV.iqe5HkMC"], ["confirmed_at", "2021-04-29 03:28:30.227658"], ["name", "TestUser 11"], ["username", "test11"], ["created_at", "2021-04-29 03:28:30.227637"], ["updated_at", "2021-04-29 03:28:30.227626"], ["jti", "4cfe1c23-e452-485f-a9b4-7af4daf13ae4"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["description", "Prueba 11"], ["user_id", 11], ["created_at", "2021-04-29 03:28:30.229712"], ["updated_at", "2021-04-29 03:28:30.229706"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 11"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 11"], ["user_id", 11], ["created_at", "2021-04-29 03:28:30.232000"], ["updated_at", "2021-04-29 03:28:30.232000"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 11]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 550)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 12], ["email", "test12@testing.com"], ["encrypted_password", "$2a$04$r3Z/SuINMHl/77MxhCWauuLScdh64rbaw3U0w5mjMxBQxa5wlTAWW"], ["confirmed_at", "2021-04-29 03:28:30.244385"], ["name", "TestUser 12"], ["username", "test12"], ["created_at", "2021-04-29 03:28:30.244362"], ["updated_at", "2021-04-29 03:28:30.244352"], ["jti", "7c7573c8-c2d1-4c4c-82e3-a6a1cf767c11"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["description", "Prueba 12"], ["user_id", 12], ["created_at", "2021-04-29 03:28:30.262839"], ["updated_at", "2021-04-29 03:28:30.262827"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 12"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 12"], ["user_id", 12], ["created_at", "2021-04-29 03:28:30.277573"], ["updated_at", "2021-04-29 03:28:30.277573"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Destroy (0.1ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 12]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 550)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test13@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test13@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 13], ["email", "test13@testing.com"], ["encrypted_password", "$2a$04$KpFzmGRzqxQWIMyKaU686.8GLSbzV4VtR1GCzpXtw5HRHo.OpDtIi"], ["confirmed_at", "2021-04-29 03:28:30.303550"], ["name", "TestUser 13"], ["username", "test13"], ["created_at", "2021-04-29 03:28:30.303523"], ["updated_at", "2021-04-29 03:28:30.303509"], ["jti", "12ad83f8-2467-4234-a6ae-637f9e63a780"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["description", "Prueba 13"], ["user_id", 13], ["created_at", "2021-04-29 03:28:30.306015"], ["updated_at", "2021-04-29 03:28:30.306009"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 13"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTask Create (0.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 13"], ["user_id", 13], ["created_at", "2021-04-29 03:28:30.308277"], ["updated_at", "2021-04-29 03:28:30.308277"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 13]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.3ms | Allocations: 550)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test14@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test14@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 14], ["email", "test14@testing.com"], ["encrypted_password", "$2a$04$rht5uEaYQNyj.rZsRKU0yODsP6BTm5DiJEOKyX15VRjyCK09j/8ou"], ["confirmed_at", "2021-04-29 03:28:30.402776"], ["name", "TestUser 14"], ["username", "test14"], ["created_at", "2021-04-29 03:28:30.402751"], ["updated_at", "2021-04-29 03:28:30.402737"], ["jti", "6cf59a23-128f-4766-94be-68368c30b483"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test15@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test15@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 15], ["email", "test15@testing.com"], ["encrypted_password", "$2a$04$acUGvfnUE74dyH6Mr.jvGuZ5IcHrJiRXgy7IIWqCW5YFHSKyREiDu"], ["confirmed_at", "2021-04-29 03:28:30.407766"], ["name", "TestUser 15"], ["username", "test15"], ["created_at", "2021-04-29 03:28:30.407744"], ["updated_at", "2021-04-29 03:28:30.407733"], ["jti", "c1e00379-3007-4e1f-af6e-328cefcb0067"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["description", "Prueba 14"], ["user_id", 15], ["created_at", "2021-04-29 03:28:30.409988"], ["updated_at", "2021-04-29 03:28:30.409982"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test16@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test16@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 16], ["email", "test16@testing.com"], ["encrypted_password", "$2a$04$BDx2D8/f3MrArSEkj2yGpe4sd4ZQpHmobTsZGDlXgBol2Gr2MnJLq"], ["confirmed_at", "2021-04-29 03:28:30.412852"], ["name", "TestUser 16"], ["username", "test16"], ["created_at", "2021-04-29 03:28:30.412835"], ["updated_at", "2021-04-29 03:28:30.412827"], ["jti", "e0871a9c-b995-4907-bc0a-7e465e7c2391"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["description", "Prueba 15"], ["user_id", 16], ["created_at", "2021-04-29 03:28:30.414813"], ["updated_at", "2021-04-29 03:28:30.414807"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"description"=>"Prueba de RSpec", "user_id"=>"1"}}
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 1932)
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (14.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (16.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (9.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["email", "test1@testing.com"], ["encrypted_password", "$2a$04$vUYR1G1WGIlCGPwSe6mJLujAv76WGmu7R4R6STX/vzFfJBZKuZU9S"], ["confirmed_at", "2021-04-29 17:42:31.514790"], ["name", "TestUser 1"], ["username", "test1"], ["created_at", "2021-04-29 17:42:31.514756"], ["updated_at", "2021-04-29 17:42:31.514736"], ["jti", "6926360f-dfe4-453c-a739-4add612960f5"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "test2@testing.com"], ["encrypted_password", "$2a$04$H.uBCFCUlcj/hsO8jBeT9eWr25uBhx5Cr/iLd4Fo2M5UO3BEcA9VK"], ["confirmed_at", "2021-04-29 17:42:31.528566"], ["name", "TestUser 2"], ["username", "test2"], ["created_at", "2021-04-29 17:42:31.528537"], ["updated_at", "2021-04-29 17:42:31.528527"], ["jti", "584b42a3-cd04-427c-bbec-dc1597b61279"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["email", "test3@testing.com"], ["encrypted_password", "$2a$04$6UV7rjyVR48i6NIrgNnhv.yDwJtwsilpafvqm7NhzIhJIog033RyW"], ["confirmed_at", "2021-04-29 17:42:31.543689"], ["name", "TestUser 3"], ["username", "test3"], ["created_at", "2021-04-29 17:42:31.543665"], ["updated_at", "2021-04-29 17:42:31.543655"], ["jti", "b8569938-2993-4be4-8579-4daaa05183d2"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 1], ["user_id", 1]]
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 4630)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["email", "test4@testing.com"], ["encrypted_password", "$2a$04$QGY/2p0egUYUy/q5ZNQOzuRAI8gaXrH1Fn0zkDT51YdubQBQz3wLy"], ["confirmed_at", "2021-04-29 17:42:31.600601"], ["name", "TestUser 4"], ["username", "test4"], ["created_at", "2021-04-29 17:42:31.600578"], ["updated_at", "2021-04-29 17:42:31.600568"], ["jti", "596ccbe8-8bdd-4214-9e28-01119f5df358"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["email", "test5@testing.com"], ["encrypted_password", "$2a$04$i1bClNigMsE1KFnQbSsA5ufHmWOmgTJOCja4S4Ru.c7xbSJgp7J2u"], ["confirmed_at", "2021-04-29 17:42:31.603749"], ["name", "TestUser 5"], ["username", "test5"], ["created_at", "2021-04-29 17:42:31.603713"], ["updated_at", "2021-04-29 17:42:31.603685"], ["jti", "529f0c5c-0ad6-4cd7-8ed7-d68f182e080d"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["email", "test6@testing.com"], ["encrypted_password", "$2a$04$sofcYlyKYGlrLbaa4Ozwhu7OEN3AqkqNVPObXadS0HuTjIZ6nGr1q"], ["confirmed_at", "2021-04-29 17:42:31.607009"], ["name", "TestUser 6"], ["username", "test6"], ["created_at", "2021-04-29 17:42:31.606989"], ["updated_at", "2021-04-29 17:42:31.606981"], ["jti", "a8c2c082-0fbd-4fcb-95e7-e22552cf0285"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 4], ["user_id", 4]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 937)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["email", "test7@testing.com"], ["encrypted_password", "$2a$04$wPu9uYK.suKzO.hqNK89Vu/G02fY6yETer9LHPIr57r9kciK.JsjK"], ["confirmed_at", "2021-04-29 17:42:31.615274"], ["name", "TestUser 7"], ["username", "test7"], ["created_at", "2021-04-29 17:42:31.615249"], ["updated_at", "2021-04-29 17:42:31.615237"], ["jti", "80fa38fc-7e17-4c08-ad17-8fdab4539dd1"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["email", "test8@testing.com"], ["encrypted_password", "$2a$04$sixmj/jQhE/vx.LzZ7fGleo8CLgE3uHwGYRATE8nogFGcxtH7tg3i"], ["confirmed_at", "2021-04-29 17:42:31.618426"], ["name", "TestUser 8"], ["username", "test8"], ["created_at", "2021-04-29 17:42:31.618408"], ["updated_at", "2021-04-29 17:42:31.618399"], ["jti", "f8177101-c93f-4798-a1fc-01960fabe32f"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["email", "test9@testing.com"], ["encrypted_password", "$2a$04$5QugjIWNiZfvsrFd/A6rweAsOBMsSE.0D4vpHPp6dalPCyaCxLHmO"], ["confirmed_at", "2021-04-29 17:42:31.621033"], ["name", "TestUser 9"], ["username", "test9"], ["created_at", "2021-04-29 17:42:31.621015"], ["updated_at", "2021-04-29 17:42:31.621007"], ["jti", "c6d60419-f73d-459a-9c1b-725980964f0c"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 7], ["user_id", 7]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 936)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 10], ["email", "test10@testing.com"], ["encrypted_password", "$2a$04$SrOWaIvZo8YKMNHzwaiz2.92Q1X6OBD0DdOmDNRFXf3ygY5KVKCbS"], ["confirmed_at", "2021-04-29 17:42:31.627322"], ["name", "TestUser 10"], ["username", "test10"], ["created_at", "2021-04-29 17:42:31.627300"], ["updated_at", "2021-04-29 17:42:31.627289"], ["jti", "6c34d436-8693-4bad-adb2-7df5b3608984"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 11], ["email", "test11@testing.com"], ["encrypted_password", "$2a$04$UwFbidSBdS4yiR45bwGiF.Tl3OcfnFuzOdenzRQpCa1oYUHL0/ANW"], ["confirmed_at", "2021-04-29 17:42:31.630585"], ["name", "TestUser 11"], ["username", "test11"], ["created_at", "2021-04-29 17:42:31.630565"], ["updated_at", "2021-04-29 17:42:31.630557"], ["jti", "4fbe39fb-0edf-47d8-85a5-420a86b37b71"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 12], ["email", "test12@testing.com"], ["encrypted_password", "$2a$04$IcWDiA5nxwWOMV0Y.a5U/uQ0V5AGAW6PzO92FT0iIuUsOysjEJFja"], ["confirmed_at", "2021-04-29 17:42:31.633376"], ["name", "TestUser 12"], ["username", "test12"], ["created_at", "2021-04-29 17:42:31.633358"], ["updated_at", "2021-04-29 17:42:31.633351"], ["jti", "185ceb54-457e-4bdd-844e-6ef37cd1c2e2"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 10], ["user_id", 10]]
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 936)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["email", "test1@testing.com"], ["encrypted_password", "$2a$04$o/2VZIQjmfoR6BKK14jR.OqwKVr25c/VZBwSq1IecDEZaSQbWyFR."], ["confirmed_at", "2021-04-29 17:52:35.934601"], ["name", "TestUser 1"], ["username", "test1"], ["created_at", "2021-04-29 17:52:35.934560"], ["updated_at", "2021-04-29 17:52:35.934534"], ["jti", "36371e77-213c-4856-9a74-f93928bd8422"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "test2@testing.com"], ["encrypted_password", "$2a$04$ApNzadcoFksyWbz9xJWgZuet57cYhtBVoCRdzXcykt6cgXwQcXRM6"], ["confirmed_at", "2021-04-29 17:52:35.939275"], ["name", "TestUser 2"], ["username", "test2"], ["created_at", "2021-04-29 17:52:35.939254"], ["updated_at", "2021-04-29 17:52:35.939244"], ["jti", "aeb475e3-0cd9-4bdb-8eee-5b4e721b1645"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["email", "test3@testing.com"], ["encrypted_password", "$2a$04$7FDzZAYnO5ZEc9TeFseGe.RUDHDnbtX7gputpEIuNjZtnDmIW31D2"], ["confirmed_at", "2021-04-29 17:52:35.945747"], ["name", "TestUser 3"], ["username", "test3"], ["created_at", "2021-04-29 17:52:35.945718"], ["updated_at", "2021-04-29 17:52:35.945704"], ["jti", "5b997c71-0424-43ae-a304-faf7e2cfd1e5"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 1], ["user_id", 1]]
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 6205)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["email", "test4@testing.com"], ["encrypted_password", "$2a$04$P66cv/au.EtKmw6PNYTP7.qHjanJUva3wrMKKXqheUMfcE5s3qNYi"], ["confirmed_at", "2021-04-29 17:52:35.997385"], ["name", "TestUser 4"], ["username", "test4"], ["created_at", "2021-04-29 17:52:35.997358"], ["updated_at", "2021-04-29 17:52:35.997343"], ["jti", "98c13a8b-09eb-4ae5-bdfd-2bffe752de39"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["email", "test5@testing.com"], ["encrypted_password", "$2a$04$61GeEwWn3xOs9vmPNxzW8.MEW7ncEU5UYoMfwKvJVmhHEI7/HNLs2"], ["confirmed_at", "2021-04-29 17:52:36.001926"], ["name", "TestUser 5"], ["username", "test5"], ["created_at", "2021-04-29 17:52:36.001896"], ["updated_at", "2021-04-29 17:52:36.001885"], ["jti", "242c4a72-3808-4e75-a7d2-975d1c0dce40"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["email", "test6@testing.com"], ["encrypted_password", "$2a$04$ROvuj61pLIyccg.c8fMWK.CT1/ZNxMhsw8Bsxf4HDhi1zjgXJB.1u"], ["confirmed_at", "2021-04-29 17:52:36.005511"], ["name", "TestUser 6"], ["username", "test6"], ["created_at", "2021-04-29 17:52:36.005491"], ["updated_at", "2021-04-29 17:52:36.005483"], ["jti", "b953070f-cca6-45b6-8b61-63baadfe5417"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 4], ["user_id", 4]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 937)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["email", "test7@testing.com"], ["encrypted_password", "$2a$04$Aaq8J55htWWTPJZKDMqkweYv87VmV.pU4IQ.rz0Ak8S3FSeEPeN1e"], ["confirmed_at", "2021-04-29 17:52:36.015074"], ["name", "TestUser 7"], ["username", "test7"], ["created_at", "2021-04-29 17:52:36.015047"], ["updated_at", "2021-04-29 17:52:36.015034"], ["jti", "32515514-afa4-4ea2-8525-955e7e791137"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["email", "test8@testing.com"], ["encrypted_password", "$2a$04$ZJUArqycd3Q2aOHWMuzIlOUWZWPzbdYdqTP1FfzZMrKCdxpqaYOQ6"], ["confirmed_at", "2021-04-29 17:52:36.018992"], ["name", "TestUser 8"], ["username", "test8"], ["created_at", "2021-04-29 17:52:36.018967"], ["updated_at", "2021-04-29 17:52:36.018956"], ["jti", "6d4233e9-89e6-4dcb-a1b1-3af70cfd1afc"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["email", "test9@testing.com"], ["encrypted_password", "$2a$04$0s8PphV2LlRGPS/x2t5y6ODOCiFOBl93WA7ziGDeqw6k2e206CqtW"], ["confirmed_at", "2021-04-29 17:52:36.023426"], ["name", "TestUser 9"], ["username", "test9"], ["created_at", "2021-04-29 17:52:36.023396"], ["updated_at", "2021-04-29 17:52:36.023385"], ["jti", "35ebb711-ac73-4724-9895-7e099b3af773"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 7], ["user_id", 7]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 936)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 10], ["email", "test10@testing.com"], ["encrypted_password", "$2a$04$O2R6pdtcQa3GlDyAWRrpIuxmo1pxf62G5UwuEbxtU2WTO78vfdhH6"], ["confirmed_at", "2021-04-29 17:52:36.032112"], ["name", "TestUser 10"], ["username", "test10"], ["created_at", "2021-04-29 17:52:36.032087"], ["updated_at", "2021-04-29 17:52:36.032074"], ["jti", "8d72793d-5371-4ea8-ace3-beb5aa2a8573"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 11], ["email", "test11@testing.com"], ["encrypted_password", "$2a$04$BrGY5uWMkWozDZXZDSWXg.Sf5KzZTmMInj6uCRpH8ztW2.SUT.oim"], ["confirmed_at", "2021-04-29 17:52:36.035921"], ["name", "TestUser 11"], ["username", "test11"], ["created_at", "2021-04-29 17:52:36.035899"], ["updated_at", "2021-04-29 17:52:36.035889"], ["jti", "58a4c43a-64c4-4560-b38d-e3ba323f32a2"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 12], ["email", "test12@testing.com"], ["encrypted_password", "$2a$04$0pb9xCTGJe4eH2aCAlGB/.TUEyHWXrQDLP.Df6ClPQ75jzXRCDHMy"], ["confirmed_at", "2021-04-29 17:52:36.039533"], ["name", "TestUser 12"], ["username", "test12"], ["created_at", "2021-04-29 17:52:36.039507"], ["updated_at", "2021-04-29 17:52:36.039496"], ["jti", "7011b0d7-ed45-4eca-8285-bc9546d5a38e"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 10], ["user_id", 10]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 936)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["email", "test1@testing.com"], ["encrypted_password", "$2a$04$0KkCN9d8cVNdEV0LORFSxuYmaxbGcI/i27AjiFhfrEIuGXG0jtWJu"], ["confirmed_at", "2021-04-29 17:53:35.957512"], ["name", "TestUser 1"], ["username", "test1"], ["created_at", "2021-04-29 17:53:35.957483"], ["updated_at", "2021-04-29 17:53:35.957464"], ["jti", "543ee986-2afe-4bfc-98ab-e562c66eec11"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["description", "Prueba 1"], ["user_id", 1], ["created_at", "2021-04-29 17:53:35.966041"], ["updated_at", "2021-04-29 17:53:35.966028"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 1"], ["user_id", 1], ["created_at", "2021-04-29 17:53:36.033435"], ["updated_at", "2021-04-29 17:53:36.033435"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 2544)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "test2@testing.com"], ["encrypted_password", "$2a$04$fb8XTKApfufNjcVPv4B4G.MdmlECjXM9fflTaCOqqnPGM4WH33MOW"], ["confirmed_at", "2021-04-29 17:53:36.047027"], ["name", "TestUser 2"], ["username", "test2"], ["created_at", "2021-04-29 17:53:36.046987"], ["updated_at", "2021-04-29 17:53:36.046969"], ["jti", "7c8d4167-3418-41d2-b080-520c734f6a93"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["description", "Prueba 2"], ["user_id", 2], ["created_at", "2021-04-29 17:53:36.050354"], ["updated_at", "2021-04-29 17:53:36.050344"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 2"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 2"], ["user_id", 2], ["created_at", "2021-04-29 17:53:36.053609"], ["updated_at", "2021-04-29 17:53:36.053609"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1075)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["email", "test3@testing.com"], ["encrypted_password", "$2a$04$bTF.s6XDGqAYOZwzcWXmW.vY1kyGJWO63AEcE1oRVNVT9vuYaGizi"], ["confirmed_at", "2021-04-29 17:53:36.057466"], ["name", "TestUser 3"], ["username", "test3"], ["created_at", "2021-04-29 17:53:36.057442"], ["updated_at", "2021-04-29 17:53:36.057430"], ["jti", "dc462a15-d0dc-44c3-b6be-0ff8e5c0649b"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["description", "Prueba 3"], ["user_id", 3], ["created_at", "2021-04-29 17:53:36.060374"], ["updated_at", "2021-04-29 17:53:36.060365"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 3"], ["user_id", 3], ["created_at", "2021-04-29 17:53:36.064279"], ["updated_at", "2021-04-29 17:53:36.064279"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1074)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["email", "test4@testing.com"], ["encrypted_password", "$2a$04$ZFWA/jdcNSrbLkrIq0itAu.JMlDtZB1EZJfXGJ.pD3yXZCmlQmKNK"], ["confirmed_at", "2021-04-29 17:53:36.068373"], ["name", "TestUser 4"], ["username", "test4"], ["created_at", "2021-04-29 17:53:36.068348"], ["updated_at", "2021-04-29 17:53:36.068335"], ["jti", "fec61001-f897-4dc0-b9ad-44d2169d117d"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["description", "Prueba 4"], ["user_id", 4], ["created_at", "2021-04-29 17:53:36.071748"], ["updated_at", "2021-04-29 17:53:36.071736"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 4"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 4"], ["user_id", 4], ["created_at", "2021-04-29 17:53:36.076003"], ["updated_at", "2021-04-29 17:53:36.076003"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1074)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 5], ["email", "test5@testing.com"], ["encrypted_password", "$2a$04$/SxNi1.6Fz4tsn.mT5lpv.jnGS2BorwI8rieSeTzDBnJBJsAFRbdW"], ["confirmed_at", "2021-04-29 17:53:36.080261"], ["name", "TestUser 5"], ["username", "test5"], ["created_at", "2021-04-29 17:53:36.080227"], ["updated_at", "2021-04-29 17:53:36.080209"], ["jti", "284af462-c4c8-4140-a17d-8f7d0d4126fc"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["description", "Prueba 5"], ["user_id", 5], ["created_at", "2021-04-29 17:53:36.085094"], ["updated_at", "2021-04-29 17:53:36.085083"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 5"], ["user_id", 5], ["created_at", "2021-04-29 17:53:36.088938"], ["updated_at", "2021-04-29 17:53:36.088938"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1074)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["email", "test6@testing.com"], ["encrypted_password", "$2a$04$OfxcHKTJiX1p1B2Jhvgd..DI9oJBteWAH8JKXV0sqnXgyhlPInbr."], ["confirmed_at", "2021-04-29 17:53:36.092818"], ["name", "TestUser 6"], ["username", "test6"], ["created_at", "2021-04-29 17:53:36.092795"], ["updated_at", "2021-04-29 17:53:36.092783"], ["jti", "92c25cf3-b157-4cda-8245-6cbae5008fdf"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["description", "Prueba 6"], ["user_id", 6], ["created_at", "2021-04-29 17:53:36.095852"], ["updated_at", "2021-04-29 17:53:36.095842"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 6"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 6"], ["user_id", 6], ["created_at", "2021-04-29 17:53:36.099677"], ["updated_at", "2021-04-29 17:53:36.099677"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 694)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["email", "test7@testing.com"], ["encrypted_password", "$2a$04$AXoM8n9HLdVO3zIz3ot0qOCmlckioFYEJGxM41TkCyNQWYU98uw3i"], ["confirmed_at", "2021-04-29 17:53:36.105456"], ["name", "TestUser 7"], ["username", "test7"], ["created_at", "2021-04-29 17:53:36.105431"], ["updated_at", "2021-04-29 17:53:36.105418"], ["jti", "c7c255d8-7a63-432a-b971-ce475befd538"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["description", "Prueba 7"], ["user_id", 7], ["created_at", "2021-04-29 17:53:36.108954"], ["updated_at", "2021-04-29 17:53:36.108940"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 7"], ["user_id", 7], ["created_at", "2021-04-29 17:53:36.113224"], ["updated_at", "2021-04-29 17:53:36.113224"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1074)
+Processing by Api::V1::TaskController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 581)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["email", "test8@testing.com"], ["encrypted_password", "$2a$04$6HRys154UpOczv7hYwxiieQalrjLDqKvjV464TAOqet8uIQLSIy7S"], ["confirmed_at", "2021-04-29 17:53:36.119836"], ["name", "TestUser 8"], ["username", "test8"], ["created_at", "2021-04-29 17:53:36.119811"], ["updated_at", "2021-04-29 17:53:36.119798"], ["jti", "a08e9d65-37df-4952-9edd-40aca9d9fefa"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["description", "Prueba 8"], ["user_id", 8], ["created_at", "2021-04-29 17:53:36.122994"], ["updated_at", "2021-04-29 17:53:36.122984"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 8"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 8"], ["user_id", 8], ["created_at", "2021-04-29 17:53:36.126614"], ["updated_at", "2021-04-29 17:53:36.126614"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 581)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["email", "test9@testing.com"], ["encrypted_password", "$2a$04$R0wrPPk5wQ49bpiKXvCNJ.Kg2mRWhzUOu3p9QjcbG0yY7Kiaa8UTe"], ["confirmed_at", "2021-04-29 17:53:36.132167"], ["name", "TestUser 9"], ["username", "test9"], ["created_at", "2021-04-29 17:53:36.132141"], ["updated_at", "2021-04-29 17:53:36.132128"], ["jti", "e7b3441d-0aa8-4efc-a0f0-2215b7ad91bc"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 9], ["description", "Prueba 9"], ["user_id", 9], ["created_at", "2021-04-29 17:53:36.135409"], ["updated_at", "2021-04-29 17:53:36.135392"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 9"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 9"], ["user_id", 9], ["created_at", "2021-04-29 17:53:36.139049"], ["updated_at", "2021-04-29 17:53:36.139049"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 581)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 10], ["email", "test10@testing.com"], ["encrypted_password", "$2a$04$eNkn8p7Pw5PwYCtSAprJFecYHzIac1Oze7rGlaULZk37b5.7gwT2m"], ["confirmed_at", "2021-04-29 17:53:36.145045"], ["name", "TestUser 10"], ["username", "test10"], ["created_at", "2021-04-29 17:53:36.145021"], ["updated_at", "2021-04-29 17:53:36.145009"], ["jti", "3bb5e95d-329a-44a7-b7a2-f7d7478bb364"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 10], ["description", "Prueba 10"], ["user_id", 10], ["created_at", "2021-04-29 17:53:36.148296"], ["updated_at", "2021-04-29 17:53:36.148285"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 10"], ["user_id", 10], ["created_at", "2021-04-29 17:53:36.152368"], ["updated_at", "2021-04-29 17:53:36.152368"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#destroy as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Destroy (0.1ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 10]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 771)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 11], ["email", "test11@testing.com"], ["encrypted_password", "$2a$04$5mDrCGMGK8fwKJFUfk2Va.kbGsWsEk5Ut1CvmFXIqZDjBZ6FZAnq2"], ["confirmed_at", "2021-04-29 17:53:36.158796"], ["name", "TestUser 11"], ["username", "test11"], ["created_at", "2021-04-29 17:53:36.158770"], ["updated_at", "2021-04-29 17:53:36.158757"], ["jti", "efc90610-3599-4453-92df-f3344329e867"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 11], ["description", "Prueba 11"], ["user_id", 11], ["created_at", "2021-04-29 17:53:36.161800"], ["updated_at", "2021-04-29 17:53:36.161790"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 11"], ["user_id", 11], ["created_at", "2021-04-29 17:53:36.166159"], ["updated_at", "2021-04-29 17:53:36.166159"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1074)
+Processing by Api::V1::TaskController#destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Destroy (0.1ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 11]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 550)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 12], ["email", "test12@testing.com"], ["encrypted_password", "$2a$04$gs7b0JSiMm6oljbfTARGEuC4aYAbup1d/rJJvCV/D0BzHeeKThjrq"], ["confirmed_at", "2021-04-29 17:53:36.171997"], ["name", "TestUser 12"], ["username", "test12"], ["created_at", "2021-04-29 17:53:36.171962"], ["updated_at", "2021-04-29 17:53:36.171942"], ["jti", "c80f9b2c-480d-4867-8505-90b9e377469a"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 12], ["description", "Prueba 12"], ["user_id", 12], ["created_at", "2021-04-29 17:53:36.175387"], ["updated_at", "2021-04-29 17:53:36.175376"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 12"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 12"], ["user_id", 12], ["created_at", "2021-04-29 17:53:36.193411"], ["updated_at", "2021-04-29 17:53:36.193411"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 17ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1074)
+Processing by Api::V1::TaskController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Destroy (0.1ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 12]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 550)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test13@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test13@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 13], ["email", "test13@testing.com"], ["encrypted_password", "$2a$04$3eRZuE9nMrsOXKPDYheWSu8u1Kmi9A3BJf0DLIuJvwvHGU0msZgDa"], ["confirmed_at", "2021-04-29 17:53:36.200263"], ["name", "TestUser 13"], ["username", "test13"], ["created_at", "2021-04-29 17:53:36.200237"], ["updated_at", "2021-04-29 17:53:36.200223"], ["jti", "2ff7d6ef-01cc-4634-8ad6-df06c65527f4"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 13], ["description", "Prueba 13"], ["user_id", 13], ["created_at", "2021-04-29 17:53:36.203318"], ["updated_at", "2021-04-29 17:53:36.203109"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TaskController#create as HTML
+  Parameters: {"description"=>"Prueba 13"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 13"], ["user_id", 13], ["created_at", "2021-04-29 17:53:36.206709"], ["updated_at", "2021-04-29 17:53:36.206709"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1074)
+Processing by Api::V1::TaskController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Destroy (0.1ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 13]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 550)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test14@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test14@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 14], ["email", "test14@testing.com"], ["encrypted_password", "$2a$04$KFUXmgsCnBuX5oyve4yysuIZoYbcM1qJ0BvIGtxnP7hXDwGBualB."], ["confirmed_at", "2021-04-29 17:53:36.230066"], ["name", "TestUser 14"], ["username", "test14"], ["created_at", "2021-04-29 17:53:36.230026"], ["updated_at", "2021-04-29 17:53:36.230006"], ["jti", "48b88afe-4228-4257-9aea-78698e88472a"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test15@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test15@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 15], ["email", "test15@testing.com"], ["encrypted_password", "$2a$04$gz4hkaL5DmOvVjnDaDTz9u.EjPSgtC5ea8IGO7Q3XYgAY2U8xZIMO"], ["confirmed_at", "2021-04-29 17:53:36.235030"], ["name", "TestUser 15"], ["username", "test15"], ["created_at", "2021-04-29 17:53:36.235003"], ["updated_at", "2021-04-29 17:53:36.234989"], ["jti", "182ead27-81c7-4331-b8b8-139fb2108141"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test16@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test16@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 16], ["email", "test16@testing.com"], ["encrypted_password", "$2a$04$0.ibgESo3Yd7xLQmOfHMk.TjT0dj6ffR7V5jaV4SXRfKt47LqfCmm"], ["confirmed_at", "2021-04-29 17:53:36.242413"], ["name", "TestUser 16"], ["username", "test16"], ["created_at", "2021-04-29 17:53:36.242386"], ["updated_at", "2021-04-29 17:53:36.242369"], ["jti", "a9f89046-9ad8-4e30-adee-b1fe5f8091dc"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 14], ["user_id", 14]]
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 4224)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test17@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test17@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 17], ["email", "test17@testing.com"], ["encrypted_password", "$2a$04$igXGwuwVvC3MLc.EeKjC1uziTPrglqZFtxgIExbt5gqquY6wEZtA2"], ["confirmed_at", "2021-04-29 17:53:36.258340"], ["name", "TestUser 17"], ["username", "test17"], ["created_at", "2021-04-29 17:53:36.258310"], ["updated_at", "2021-04-29 17:53:36.258290"], ["jti", "b568c7c9-f5ea-4635-b6e3-9cfb6fadfb07"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test18@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test18@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 18], ["email", "test18@testing.com"], ["encrypted_password", "$2a$04$WBA4H/vHq74J8AQsiUwCc.jQ2MOLGfWlH.4kZRfMJtZawl0c287gy"], ["confirmed_at", "2021-04-29 17:53:36.263036"], ["name", "TestUser 18"], ["username", "test18"], ["created_at", "2021-04-29 17:53:36.262992"], ["updated_at", "2021-04-29 17:53:36.262972"], ["jti", "4a1eba1f-b7c6-41d0-95f5-e6edefb09632"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test19@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test19@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 19], ["email", "test19@testing.com"], ["encrypted_password", "$2a$04$MBndqZWVwiNZRNRqv5lcCOgr5zEf2v2Xxx1R6Nm.s70exoyD9rjOS"], ["confirmed_at", "2021-04-29 17:53:36.267767"], ["name", "TestUser 19"], ["username", "test19"], ["created_at", "2021-04-29 17:53:36.267739"], ["updated_at", "2021-04-29 17:53:36.267728"], ["jti", "b744b3db-7cee-48bb-8b5a-19732a76acfa"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 17], ["user_id", 17]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 936)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test20@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test20@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 20], ["email", "test20@testing.com"], ["encrypted_password", "$2a$04$l02A9BVGHJp4DY02z4WHeu811VHOTK36gH2XQ.CYHyg0ntBZRSMXG"], ["confirmed_at", "2021-04-29 17:53:36.277063"], ["name", "TestUser 20"], ["username", "test20"], ["created_at", "2021-04-29 17:53:36.277033"], ["updated_at", "2021-04-29 17:53:36.277016"], ["jti", "fb61ef58-6c2c-40cb-bc7b-24d1d29e3b19"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test21@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test21@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 21], ["email", "test21@testing.com"], ["encrypted_password", "$2a$04$jBVxfcw9dL6Es61W4xA9Y.xcTGD7jkdFgxwR0XJOenoF3iDihH0gS"], ["confirmed_at", "2021-04-29 17:53:36.281419"], ["name", "TestUser 21"], ["username", "test21"], ["created_at", "2021-04-29 17:53:36.281375"], ["updated_at", "2021-04-29 17:53:36.281352"], ["jti", "9b27bfae-dc26-4963-82ef-f5232dda9fb6"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test22@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test22@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 22], ["email", "test22@testing.com"], ["encrypted_password", "$2a$04$ygzW1/ZzWBADqDHlV.pOq.YnIj4mcgL.tIfGqLk9HooXhzg2QuQUO"], ["confirmed_at", "2021-04-29 17:53:36.286115"], ["name", "TestUser 22"], ["username", "test22"], ["created_at", "2021-04-29 17:53:36.286092"], ["updated_at", "2021-04-29 17:53:36.286082"], ["jti", "18d18cff-1f2e-4a6f-9e38-cf4ba5e8a135"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 20], ["user_id", 20]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 936)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test23@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test23@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 23], ["email", "test23@testing.com"], ["encrypted_password", "$2a$04$ch8YnS32ZN9S.8VYbl2jFuK1X0/dhKl1ZyZr6q.VtBIAm2hBS0k9e"], ["confirmed_at", "2021-04-29 17:53:36.295394"], ["name", "TestUser 23"], ["username", "test23"], ["created_at", "2021-04-29 17:53:36.295362"], ["updated_at", "2021-04-29 17:53:36.295344"], ["jti", "3f0c0eed-83fb-4da4-9026-22570fb02fa8"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test24@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test24@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 24], ["email", "test24@testing.com"], ["encrypted_password", "$2a$04$ifODSPrDf3ggvqBP0sKGCeFbbfuJ.l3XHg5cRcVlcOVhnqFqaJ.36"], ["confirmed_at", "2021-04-29 17:53:36.299994"], ["name", "TestUser 24"], ["username", "test24"], ["created_at", "2021-04-29 17:53:36.299965"], ["updated_at", "2021-04-29 17:53:36.299939"], ["jti", "9332f57d-332d-4cec-ac3d-755bfb552c54"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test25@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test25@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 25], ["email", "test25@testing.com"], ["encrypted_password", "$2a$04$YxvjojphdGQSjMxh4yOy.O0fNfKkKTNLZBqZlyry5e9zVrncpTBX2"], ["confirmed_at", "2021-04-29 17:53:36.303649"], ["name", "TestUser 25"], ["username", "test25"], ["created_at", "2021-04-29 17:53:36.303621"], ["updated_at", "2021-04-29 17:53:36.303610"], ["jti", "a07d7a4b-4e23-4b21-9618-fbe7e2b175aa"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TimelineController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE ("tasks"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follow_id" WHERE "follows"."user_id" = ?) OR "tasks"."user_id" = ?)[0m  [["user_id", 23], ["user_id", 23]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 936)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test26@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test26@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 26], ["email", "test26@testing.com"], ["encrypted_password", "$2a$04$R7rdv2n0FYdLzsHCQ7F6/uX0yG7YL5bPC7EXI8sKe//Dz1BvDBJvW"], ["confirmed_at", "2021-04-29 17:53:36.312693"], ["name", "TestUser 26"], ["username", "test26"], ["created_at", "2021-04-29 17:53:36.312660"], ["updated_at", "2021-04-29 17:53:36.312644"], ["jti", "ded3fde5-ffd1-4093-8f03-45a654ab8fa1"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test27@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test27@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 27], ["email", "test27@testing.com"], ["encrypted_password", "$2a$04$mJ/97URnFGbSaVL5lKaA7eSGaZBHNmo.Ei57p1T0Zaio1NqYKKraK"], ["confirmed_at", "2021-04-29 17:53:36.318453"], ["name", "TestUser 27"], ["username", "test27"], ["created_at", "2021-04-29 17:53:36.318425"], ["updated_at", "2021-04-29 17:53:36.318411"], ["jti", "aeaf69dd-ef3c-4ac8-8dbd-c4a21aa12276"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 14], ["description", "Prueba 14"], ["user_id", 27], ["created_at", "2021-04-29 17:53:36.321475"], ["updated_at", "2021-04-29 17:53:36.321466"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test28@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test28@testing.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "confirmed_at", "name", "username", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 28], ["email", "test28@testing.com"], ["encrypted_password", "$2a$04$vHI3MvOSnvM3eDDfzqlDxunuI9Yd8K.cg5Lv7hjK4Z.WEQSpylNWK"], ["confirmed_at", "2021-04-29 17:53:36.325660"], ["name", "TestUser 28"], ["username", "test28"], ["created_at", "2021-04-29 17:53:36.325635"], ["updated_at", "2021-04-29 17:53:36.325623"], ["jti", "68fd09a9-1c8f-4571-9a6b-9815e02eab01"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 15], ["description", "Prueba 15"], ["user_id", 28], ["created_at", "2021-04-29 17:53:36.328355"], ["updated_at", "2021-04-29 17:53:36.328345"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"description"=>"Prueba de RSpec", "user_id"=>"1"}}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms | Allocations: 2223)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
