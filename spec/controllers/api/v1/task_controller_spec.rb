@@ -5,7 +5,6 @@ RSpec.describe Api::V1::TaskController, "#create" do
     context "Crear tweets y es valido:" do
         let(:task) {create(:task, user: user)}
         before do
-            
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
             post :create, params: {description: task.description}
