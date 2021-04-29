@@ -7,9 +7,15 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       #resources :tasks #, only: [:index]
-      resources :follow
+      resources :follow #, only: [:index]
       resources :timeline
       resources :followers
+
+
+      devise_scope :follow do
+        post '/:id', to: 'follow#create'
+      end
+
       devise_scope :user do
         post '/signup', to: 'registrations#create'
         post '/auth/login', to: 'sessions#create'

@@ -18,10 +18,8 @@ module Api
               # TODO: Implement auth
               if @task.save
                 render json: {info: "Tweet creado", tweet: @task}, status: 201
-              elsif @task.description.length > 280
-                render json: { error: "Excede el limite de 280 caracteres"}, status: :unprocessable_entity
               else
-                render json: { error: "No se pudo crear el tweet"}, status: :unprocessable_entity
+                #render json: { error: "Excede el limite de 280 caracteres"}, status: :unprocessable_entity
               end    
             end
 
@@ -29,15 +27,13 @@ module Api
             def destroy       
               if @task.destroy
                 render json: "Tweet borrado", status: 200
-              else
-                render json: {error: "No se pudo borrar el tweet"}, status: :unprocessable_entity
               end
             end
 
             #GET api/v1/tasks/:id
             def show
               render json: @task
-            end
+            end            
 
             def task_params
               params.permit( :description)#, :user_id)

@@ -9,14 +9,6 @@ module Api
                 render json: {timeline: timeline}
             end
 
-            def set_task
-              begin
-                @task=Task.find(params[:id])
-              rescue ActiveRecord::RecordNotFound
-                render json: {error: "Tweet no encontrado"}, status: 404
-              end
-            end
-
         end
     end
 end
