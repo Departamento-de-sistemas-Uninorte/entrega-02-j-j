@@ -1186,3 +1186,608 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 5203)
 
 
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2021-04-29 21:59:02 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 54.5ms | Allocations: 484)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 537.5ms | Allocations: 6172)
+Completed 200 OK in 548ms (Views: 541.1ms | ActiveRecord: 0.0ms | Allocations: 9352)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-29 21:59:06 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 714)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.3ms | Allocations: 4912)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 7961)
+Completed 200 OK in 31ms (Views: 20.0ms | ActiveRecord: 0.4ms | Allocations: 17133)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-29 21:59:33 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 110)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3128)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 3526)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-04-29 21:59:34 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 206)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4109)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 4784)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-04-29 21:59:37 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 271ms (ActiveRecord: 0.5ms | Allocations: 7971)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-29 21:59:37 -0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1062)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 4017)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.2ms | Allocations: 4471)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-04-29 21:59:39 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4221)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 7226)
+Completed 200 OK in 16ms (Views: 9.9ms | ActiveRecord: 1.2ms | Allocations: 10137)
+
+
+Started DELETE "/tasks/10" for 127.0.0.1 at 2021-04-29 21:59:46 -0500
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:33:in `set_task'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:18:in `destroy'
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/tasks_controller.rb:18:in `destroy'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:18:in `destroy'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 12ms (ActiveRecord: 3.5ms | Allocations: 6468)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-04-29 21:59:46 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1050)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3987)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 5619)
+
+
+Started GET "/tasks/9" for 127.0.0.1 at 2021-04-29 21:59:58 -0500
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:33:in `set_task'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/show.html.erb:8
+  Rendered tasks/show.html.erb within layouts/application (Duration: 24.5ms | Allocations: 1052)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 3998)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 0.3ms | Allocations: 6309)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-04-29 22:00:03 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1050)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3987)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.2ms | Allocations: 5622)
+
+
+Started GET "/tasks/9" for 127.0.0.1 at 2021-04-29 22:10:12 -0500
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:33:in `set_task'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/show.html.erb:8
+  Rendered tasks/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 765)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3711)
+Completed 200 OK in 12ms (Views: 5.7ms | ActiveRecord: 0.9ms | Allocations: 6968)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2021-04-29 22:10:15 -0500
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:3
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1067)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 4016)
+Completed 200 OK in 18ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 5670)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-29 22:33:36 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 204ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 8152)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-29 22:33:56 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"hurtadojosmanuel@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hurtadojosmanuel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "7c584e67-ae34-4ae9-9b4e-0492e843a8ee"], ["id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 194ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 2538)
+
+
+Started POST "/api/v1/follow/2" for 127.0.0.1 at 2021-04-29 22:35:18 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/follow/2"):
+  
+Started GET "/api/v1/follow/2" for 127.0.0.1 at 2021-04-29 22:37:07 -0500
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::FollowController
+Did you mean?  create
+               index):
+  
+actionpack (6.1.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:842:in `call'
+warden-jwt_auth (0.3.6) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.3.6) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (2.2.3) lib/rack/builder.rb:244:in `call'
+warden-jwt_auth (0.3.6) lib/warden/jwt_auth/middleware.rb:23:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.3) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3) lib/rails/engine.rb:539:in `call'
+puma (5.2.2) lib/puma/configuration.rb:248:in `call'
+puma (5.2.2) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.2) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.2) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.2) lib/puma/server.rb:431:in `process_client'
+puma (5.2.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started POST "/api/v1/follow/2" for 127.0.0.1 at 2021-04-29 22:38:26 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:33:in `find_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mFollow Create (0.7ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "follow_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["follow_id", 2], ["created_at", "2021-04-30 03:38:26.610060"], ["updated_at", "2021-04-30 03:38:26.610060"]]
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notif.html.erb within layouts/mailer
+  Rendered user_mailer/notif.html.erb within layouts/mailer (Duration: 3.3ms | Allocations: 2266)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.7ms | Allocations: 2335)
+UserMailer#notif: processed outbound mail in 7.0ms
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 4.0ms | Allocations: 27538)
+
+
+  
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <h1><%= @user.email %> te esta siguiendo </h1>
+  
+app/views/user_mailer/notif.html.erb:1
+app/mailers/user_mailer.rb:4:in `notif'
+app/controllers/api/v1/follow_controller.rb:17:in `create'
+Started POST "/api/v1/follow/3" for 127.0.0.1 at 2021-04-29 22:39:39 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"id"=>"3"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:34:in `find_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mFollow Create (3.4ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "follow_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["follow_id", 3], ["created_at", "2021-04-30 03:39:39.141447"], ["updated_at", "2021-04-30 03:39:39.141447"]]
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:37:in `current_user'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notif.html.erb within layouts/mailer
+  Rendered user_mailer/notif.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 92)
+  Rendered layout layouts/mailer.html.erb (Duration: 26.7ms | Allocations: 347)
+UserMailer#notif: processed outbound mail in 29.3ms
+Delivered mail 608b7c35a981a_253c5050408ee@elementalark.mail (3159.5ms)
+Date: Thu, 29 Apr 2021 22:40:37 -0500
+From: from@example.com
+To: asdasdasdads@hotmail.com
+Message-ID: <608b7c35a981a_253c5050408ee@elementalark.mail>
+Subject: Se ha publicado un nuevo libro!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>hurtadojosmanuel@gmail.com te esta siguiendo </h1>
+  </body>
+</html>
+
+Completed 201 Created in 61547ms (Views: 0.3ms | ActiveRecord: 10.9ms | Allocations: 95713)
+
+
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" ORDER BY "follows"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFollow Destroy (3.1ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 5]]
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" ORDER BY "follows"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFollow Destroy (2.9ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 4]]
+Started POST "/api/v1/follow/2" for 127.0.0.1 at 2021-04-29 22:41:23 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:34:in `find_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mFollow Create (0.3ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "follow_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["follow_id", 2], ["created_at", "2021-04-30 03:41:24.065525"], ["updated_at", "2021-04-30 03:41:24.065525"]]
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:37:in `current_user'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notif.html.erb within layouts/mailer
+  Rendered user_mailer/notif.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.2ms | Allocations: 123)
+UserMailer#notif: processed outbound mail in 1.8ms
+Delivered mail 608b7c64137b8_253c511840925@elementalark.mail (1611.7ms)
+Date: Thu, 29 Apr 2021 22:41:24 -0500
+From: from@example.com
+To: jorgeok.2000@hotmail.com
+Message-ID: <608b7c64137b8_253c511840925@elementalark.mail>
+Subject: Se ha publicado un nuevo libro!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>hurtadojosmanuel@gmail.com te esta siguiendo </h1>
+  </body>
+</html>
+
+Completed 201 Created in 1646ms (Views: 0.5ms | ActiveRecord: 5.0ms | Allocations: 23251)
+
+
+Started POST "/api/v1/follow/3" for 127.0.0.1 at 2021-04-29 22:42:45 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"id"=>"3"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:34:in `find_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mFollow Create (0.3ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "follow_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["follow_id", 3], ["created_at", "2021-04-30 03:42:45.907446"], ["updated_at", "2021-04-30 03:42:45.907446"]]
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:37:in `current_user'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notif.html.erb within layouts/mailer
+  Rendered user_mailer/notif.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.3ms | Allocations: 123)
+UserMailer#notif: processed outbound mail in 1.8ms
+Delivered mail 608b7cccddaef_253c539841028@elementalark.mail (1713.4ms)
+Date: Thu, 29 Apr 2021 22:43:08 -0500
+From: from@example.com
+To: asdasdasdads@hotmail.com
+Message-ID: <608b7cccddaef_253c539841028@elementalark.mail>
+Subject: Se ha publicado un nuevo libro!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>hurtadojosmanuel@gmail.com te esta siguiendo </h1>
+  </body>
+</html>
+
+Completed 201 Created in 24731ms (Views: 0.2ms | ActiveRecord: 3.6ms | Allocations: 42518)
+
+
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" ORDER BY "follows"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFollow Destroy (2.2ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 7]]
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" ORDER BY "follows"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFollow Destroy (2.0ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 6]]
+Started POST "/api/v1/follow/2" for 127.0.0.1 at 2021-04-29 22:44:03 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:34:in `find_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mFollow Create (3.3ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "follow_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["follow_id", 2], ["created_at", "2021-04-30 03:44:03.142444"], ["updated_at", "2021-04-30 03:44:03.142444"]]
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:37:in `current_user'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notif.html.erb within layouts/mailer
+  Rendered user_mailer/notif.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 42)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.2ms | Allocations: 118)
+UserMailer#notif: processed outbound mail in 1.2ms
+Delivered mail 608b7d347719e_253c5190411d2@elementalark.mail (1730.2ms)
+Date: Thu, 29 Apr 2021 22:44:52 -0500
+From: from@example.com
+To: jorgeok.2000@hotmail.com
+Message-ID: <608b7d347719e_253c5190411d2@elementalark.mail>
+Subject: Se ha publicado un nuevo libro!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>hurtadojosmanuel@gmail.com te esta siguiendo </h1>
+  </body>
+</html>
+
+Completed 201 Created in 51079ms (Views: 0.2ms | ActiveRecord: 8.8ms | Allocations: 33496)
+
+
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" ORDER BY "follows"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFollow Destroy (2.2ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 8]]
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" ORDER BY "follows"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFollow Destroy (1.7ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 3]]
+Started POST "/api/v1/follow/2" for 127.0.0.1 at 2021-04-29 22:45:21 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:34:in `find_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mFollow Create (1.8ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "follow_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["follow_id", 2], ["created_at", "2021-04-30 03:45:21.196576"], ["updated_at", "2021-04-30 03:45:21.196576"]]
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:37:in `current_user'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notif.html.erb within layouts/mailer
+  Rendered user_mailer/notif.html.erb within layouts/mailer (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.5ms | Allocations: 123)
+UserMailer#notif: processed outbound mail in 2.7ms
+Delivered mail 608b7d513453f_253c3a5c41223@elementalark.mail (2145.4ms)
+Date: Thu, 29 Apr 2021 22:45:21 -0500
+From: from@example.com
+To: jorgeok.2000@hotmail.com
+Message-ID: <608b7d513453f_253c3a5c41223@elementalark.mail>
+Subject: Se ha publicado un nuevo libro!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>hurtadojosmanuel@gmail.com te esta siguiendo </h1>
+  </body>
+</html>
+
+Completed 201 Created in 2182ms (Views: 0.2ms | ActiveRecord: 4.7ms | Allocations: 22449)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/api/v1/follow/8" for 127.0.0.1 at 2021-04-29 22:52:05 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"id"=>"8"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:34:in `find_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mFollow Create (0.3ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "follow_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["follow_id", 8], ["created_at", "2021-04-30 03:52:05.742264"], ["updated_at", "2021-04-30 03:52:05.742264"]]
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:37:in `current_user'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notif.html.erb within layouts/mailer
+  Rendered user_mailer/notif.html.erb within layouts/mailer (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.4ms | Allocations: 123)
+UserMailer#notif: processed outbound mail in 1.8ms
+Delivered mail 608b7ee5b8cc9_253c5050413c0@elementalark.mail (1787.2ms)
+Date: Thu, 29 Apr 2021 22:52:05 -0500
+From: from@example.com
+To: mjhurtado@uninorte.edu.co
+Message-ID: <608b7ee5b8cc9_253c5050413c0@elementalark.mail>
+Subject: Tienes un nuevo seguidor
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>hurtadojosmanuel@gmail.com te esta siguiendo </h1>
+  </body>
+</html>
+
+Completed 201 Created in 1817ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 21232)
+
+

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
       devise_scope :follow do
-        post '/:id', to: 'follow#create'
+        post '/follow/:id', to: 'follow#create'
       end
 
       devise_scope :user do

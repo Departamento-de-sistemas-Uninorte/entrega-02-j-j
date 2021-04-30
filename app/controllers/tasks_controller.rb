@@ -5,16 +5,12 @@ class TasksController < ApplicationController
     @tasks= Task.all
   end
 
-  def new
-    @tasks= Task.new
-  end
-
   def create
     @task=Task.new(task_params)
     if @task.save
       redirect_to tasks_path, notice: "Tweet publicado"
     else
-      render :new
+      redirect_to new_task_path
     end    
   end
 
