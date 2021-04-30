@@ -44,7 +44,6 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
@@ -77,7 +76,9 @@ RSpec.configure do |config|
     # For Devise > 4.1.1
     config.include FactoryBot::Syntax::Methods
     config.include Devise::Test::ControllerHelpers, type: :controller
+    config.include Devise::Test::ControllerHelpers, type: :view
     config.include Devise::Test::IntegrationHelpers, type: :request
+    config.include Devise::Test::IntegrationHelpers, type: :feature
     # Use the following instead if you are on Devise <= 4.1.1
     # config.include Devise::TestHelpers, :type => :controller
   end

@@ -14,6 +14,8 @@ module Api
                     follow = Follow.new({user_id: @current_user_id, follow_id: @user_to_follow.id})
                     begin
                         if follow.save
+                            
+                            UserMailer.notif(current_user, @user_to_follow).deliver_now
                             render json: {info: "Usuario Seguido", user: @user_to_follow.email}, status: 201
                         end
                     rescue ActiveRecord::RecordNotUnique
