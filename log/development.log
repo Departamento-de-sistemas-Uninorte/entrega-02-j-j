@@ -2567,3 +2567,301 @@ Content-Transfer-Encoding: 7bit
 Completed 201 Created in 2072ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 14337)
 
 
+Started GET "/api/v1/followers" for 127.0.0.1 at 2021-04-30 13:52:45 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::FollowersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+Completed 404 Not Found in 11ms (ActiveRecord: 1.2ms | Allocations: 3072)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=5):
+  
+app/controllers/api/v1/api_controller.rb:19:in `process_token'
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-30 13:53:26 -0500
+Processing by Api::V1::SessionsController#create as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2419)
+
+
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-30 13:53:27 -0500
+Processing by Api::V1::SessionsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1045)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-30 13:54:32 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"chacha0069@protonmail.ch", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.ch"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Update (3.7ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "0b705ca9-0ecc-4589-a5f0-5a35df7cffaf"], ["id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 203ms (Views: 0.2ms | ActiveRecord: 3.9ms | Allocations: 10478)
+
+
+Started GET "/api/v1/tweet" for 127.0.0.1 at 2021-04-30 13:55:13 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/tweet"):
+  
+Started GET "/api/v1/tweet" for 127.0.0.1 at 2021-04-30 13:55:18 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/tweet"):
+  
+Started POST "/api/v1/tweet" for 127.0.0.1 at 2021-04-30 13:55:32 -0500
+Processing by Api::V1::TweetController#create as */*
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tweet_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/tweet_controller.rb:19:in `create'
+  [1m[36mTweet Create (0.8ms)[0m  [1m[32mINSERT INTO "tweets" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Prueba 1"], ["user_id", 1], ["created_at", "2021-04-30 18:55:32.750259"], ["updated_at", "2021-04-30 18:55:32.750259"]]
+  ↳ app/controllers/api/v1/tweet_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/tweet_controller.rb:19:in `create'
+Completed 201 Created in 51ms (Views: 0.4ms | ActiveRecord: 5.3ms | Allocations: 12342)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 13:56:06 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"mjhurtado@uninorte.edu.co", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu.co"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu.co"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "mjhurtado@uninorte.edu.co"], ["encrypted_password", "$2a$12$PJ3IYuADxSebwbsSF9huzuyNap12QGtPTwAEwJ8U2sbs60nFF3uhq"], ["confirmation_token", "DxDGafLpF_jdFuodxxUh"], ["confirmation_sent_at", "2021-04-30 18:56:06.624669"], ["created_at", "2021-04-30 18:56:06.624544"], ["updated_at", "2021-04-30 18:56:06.624544"], ["jti", "ca36292f-d625-4fb7-8ecd-799bfc8a8987"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 12.1ms | Allocations: 606)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 26.6ms
+Delivered mail 608c52c6af8c0_36373a7097428@elementalark.mail (1897.8ms)
+Date: Fri, 30 Apr 2021 13:56:06 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mjhurtado@uninorte.edu.co
+Message-ID: <608c52c6af8c0_36373a7097428@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mjhurtado@uninorte.edu.co!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=DxDGafLpF_jdFuodxxUh">Confirm my account</a></p>
+
+Completed 201 Created in 2186ms (Views: 0.2ms | ActiveRecord: 4.6ms | Allocations: 23693)
+
+
+Started GET "/users/confirmation?confirmation_token=[FILTERED]" for ::1 at 2021-04-30 13:56:30 -0500
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "DxDGafLpF_jdFuodxxUh"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (4.5ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["confirmed_at", "2021-04-30 18:56:30.154522"], ["updated_at", "2021-04-30 18:56:30.154894"], ["id", 2]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 31ms (ActiveRecord: 12.6ms | Allocations: 7786)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-30 13:56:30 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 712)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 33.5ms | Allocations: 3045)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 140.2ms | Allocations: 8966)
+Completed 200 OK in 146ms (Views: 143.9ms | ActiveRecord: 0.0ms | Allocations: 11155)
+
+
+Started POST "/api/v1/follow/2" for 127.0.0.1 at 2021-04-30 13:56:45 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"description"=>"Prueba 1", "id"=>"2"}
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:34:in `find_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mFollow Create (1.8ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "follow_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["follow_id", 2], ["created_at", "2021-04-30 18:56:45.159494"], ["updated_at", "2021-04-30 18:56:45.159494"]]
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/follow_controller.rb:16:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:37:in `current_user'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notif.html.erb within layouts/mailer
+  Rendered user_mailer/notif.html.erb within layouts/mailer (Duration: 0.7ms | Allocations: 132)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.5ms | Allocations: 309)
+UserMailer#notif: processed outbound mail in 3.8ms
+Delivered mail 608c52ed2bd98_36373a709752c@elementalark.mail (1726.6ms)
+Date: Fri, 30 Apr 2021 13:56:45 -0500
+From: from@example.com
+To: mjhurtado@uninorte.edu.co
+Message-ID: <608c52ed2bd98_36373a709752c@elementalark.mail>
+Subject: Tienes un nuevo seguidor
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>chacha0069@protonmail.ch te esta siguiendo </h1>
+  </body>
+</html>
+
+Completed 201 Created in 1766ms (Views: 0.6ms | ActiveRecord: 11.5ms | Allocations: 15187)
+
+
+Started GET "/api/v1/auth/login" for 127.0.0.1 at 2021-04-30 13:57:34 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth/login"):
+  
+Started POST "/api/v1/auth/login" for 127.0.0.1 at 2021-04-30 13:57:38 -0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"mjhurtado@uninorte.edu.co", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mjhurtado@uninorte.edu.co"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+  [1m[36mUser Update (5.5ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "af202d81-586e-4a5e-be90-2fb1eba5a1e1"], ["id", 2]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 201ms (Views: 0.2ms | ActiveRecord: 7.5ms | Allocations: 3442)
+
+
+Started GET "/api/v1/follow" for 127.0.0.1 at 2021-04-30 13:57:58 -0500
+Processing by Api::V1::FollowController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 0.6ms | Allocations: 1821)
+
+
+Started GET "/api/v1/followers" for 127.0.0.1 at 2021-04-30 13:58:06 -0500
+Processing by Api::V1::FollowersController#index as */*
+Completed 500 Internal Server Error in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1645)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/api_controller.rb:19:in `process_token'
+Started GET "/api/v1/followers" for 127.0.0.1 at 2021-04-30 13:58:25 -0500
+Processing by Api::V1::FollowersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follow_id" = ?[0m  [["follow_id", 2]]
+  ↳ app/controllers/api/v1/followers_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1467)
+
+
+Started GET "/api/v1/follow" for 127.0.0.1 at 2021-04-30 13:58:42 -0500
+Processing by Api::V1::FollowController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/follow_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1585)
+
+
+Started POST "/api/v1/follow" for 127.0.0.1 at 2021-04-30 13:58:50 -0500
+Processing by Api::V1::FollowController#create as */*
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+Filter chain halted as :find_user rendered or redirected
+Completed 404 Not Found in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1265)
+
+
+Started GET "/api/v1/follow" for 127.0.0.1 at 2021-04-30 13:58:55 -0500
+Processing by Api::V1::FollowController#index as */*
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 1686)
+
+
+Started GET "/api/v1/followers" for 127.0.0.1 at 2021-04-30 14:00:25 -0500
+Processing by Api::V1::FollowersController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follow_id" = ?[0m  [["follow_id", 2]]
+  ↳ app/controllers/api/v1/followers_controller.rb:10:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/followers_controller.rb:11:in `block in index'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 12488)
+
+
+Started GET "/api/v1/followers" for 127.0.0.1 at 2021-04-30 14:01:07 -0500
+Processing by Api::V1::FollowersController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follow_id" = ?[0m  [["follow_id", 2]]
+  ↳ app/controllers/api/v1/followers_controller.rb:10:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/followers_controller.rb:11:in `block in index'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 12263)
+
+
+Started GET "/api/v1/follow" for 127.0.0.1 at 2021-04-30 14:02:22 -0500
+Processing by Api::V1::FollowController#index as */*
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:10:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:11:in `block in index'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.5ms | Allocations: 14300)
+
+
+  
+NoMethodError (undefined method `push' for #<ActiveRecord::Relation [#<Follow id: 1, user_id: 1, follow_id: 2, created_at: "2021-04-30 18:56:45.159494000 +0000", updated_at: "2021-04-30 18:56:45.159494000 +0000">]>):
+  
+app/controllers/api/v1/follow_controller.rb:11:in `block in index'
+app/controllers/api/v1/follow_controller.rb:10:in `index'
+Started GET "/api/v1/follow" for 127.0.0.1 at 2021-04-30 14:02:45 -0500
+Processing by Api::V1::FollowController#index as */*
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:10:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:11:in `block in index'
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 12324)
+
+

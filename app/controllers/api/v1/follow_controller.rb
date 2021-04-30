@@ -6,7 +6,11 @@ module Api
 
             def index
                 following = Follow.where(user_id: @current_user_id)
-                render json: {following: following}
+                followingaux = []
+                following.each do |n|
+                    followingaux.push({seguido_id: n.follow_id, email: User.find(n.follow_id).email})
+                end
+                render json: {following: followingaux}
             end
             
             def create

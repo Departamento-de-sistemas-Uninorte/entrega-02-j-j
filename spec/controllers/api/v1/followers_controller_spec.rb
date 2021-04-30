@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::FollowersController, "#index" do
     let(:user) {create(:user, :confirmed)}
-    #let(:userToFollow) {create(:user, :confirmed)}
+    let(:userToFollow) {create(:user, :confirmed)}
 
-    context "Al mostrar una timeline: " do
+    context "Al mostrar los seguidores: " do
         
         before do            
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
+            Follow.new(user_id: user.id, follow_id: userToFollow.id).save
+            Follow.new(user_id: userToFollow.id, follow_id: user.id).save
             get :index
         end
         it "debe de estar el usuario confirmado" do
@@ -24,6 +26,7 @@ RSpec.describe Api::V1::FollowersController, "#index" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["followers"])
         end
+        
 
     end
 end
