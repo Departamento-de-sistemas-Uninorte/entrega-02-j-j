@@ -1,5 +1,5 @@
 class Tweet < ActiveRecord::Migration[6.1]
   def change
-    rename_table :tweets, :tweets
+    rename_table :tasks, :tweets
   end
 end
