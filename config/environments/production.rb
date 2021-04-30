@@ -23,8 +23,8 @@ Rails.application.configure do
     domain: "example.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: 'donotreply.twt@gmail.com',
-    password: 'twitterapp'
+    user_name: 'donotreply.gorjeo@gmail.com',
+    password: 'gorjeosechs'
   }
 
   config.action_mailer.default_url_options = { host: 'http://gorjeo.herokuapp.com/' }

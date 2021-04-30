@@ -2216,3 +2216,42 @@ Migrating to Gorjeo (20210430170209)
   [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:19:03 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"ravam0069@protonmail.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ravam0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ravam0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "ravam0069@protonmail.com"], ["encrypted_password", "$2a$12$Sb11wg6xSYuhu.FgAIASROGO4JQdrC33HbyDBTIxqlNw/yw3FcRlC"], ["confirmation_token", "GzbmK8u5sfzx8NUyPzbp"], ["confirmation_sent_at", "2021-04-30 17:19:03.808270"], ["created_at", "2021-04-30 17:19:03.800477"], ["updated_at", "2021-04-30 17:19:03.800477"], ["jti", "981fc0b8-f8ba-40e5-9115-477c96e085cf"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 2.3ms | Allocations: 819)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 54.2ms
+Delivered mail 608c3c07ed787_2ac53a20434b0@elementalark.mail (2293.2ms)
+Date: Fri, 30 Apr 2021 12:19:03 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ravam0069@protonmail.com
+Message-ID: <608c3c07ed787_2ac53a20434b0@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome ravam0069@protonmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=GzbmK8u5sfzx8NUyPzbp">Confirm my account</a></p>
+
+Completed 201 Created in 2700ms (Views: 0.3ms | ActiveRecord: 5.8ms | Allocations: 34556)
+
+
