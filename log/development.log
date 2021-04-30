@@ -2255,3 +2255,315 @@ Content-Transfer-Encoding: 7bit
 Completed 201 Created in 2700ms (Views: 0.3ms | ActiveRecord: 5.8ms | Allocations: 34556)
 
 
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:27:41 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"ravam0069@protonmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ravam0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ravam0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 422 Unprocessable Entity in 198ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 4829)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:32:44 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"ravam006w9@protonmail.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ravam006w9@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ravam006w9@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (20.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "ravam006w9@protonmail.com"], ["encrypted_password", "$2a$12$VZti9Uuci/V2L6ILdXi3tuh0/kRp81pjSKVvBaVa8It2FDBeTTXcm"], ["confirmation_token", "Jqmustmoeoyzyism-xox"], ["confirmation_sent_at", "2021-04-30 17:32:44.360464"], ["created_at", "2021-04-30 17:32:44.360369"], ["updated_at", "2021-04-30 17:32:44.360369"], ["jti", "acd4300d-578c-47cb-a913-96a024f6c0fb"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 1.0ms | Allocations: 231)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 5.4ms
+Delivered mail 608c3f3c60346_2ac551a4435de@elementalark.mail (1766.4ms)
+Date: Fri, 30 Apr 2021 12:32:44 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ravam006w9@protonmail.com
+Message-ID: <608c3f3c60346_2ac551a4435de@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome ravam006w9@protonmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Jqmustmoeoyzyism-xox">Confirm my account</a></p>
+
+Completed 201 Created in 2065ms (Views: 0.3ms | ActiveRecord: 21.7ms | Allocations: 12822)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:33:50 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"chacha0069@protonmail.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "chacha0069@protonmail.com"], ["encrypted_password", "$2a$12$czFBzzYU17ZGDZUFRArHaukULdF2uysg.I/yzlf1TWAEpBSFqXHdi"], ["confirmation_token", "xMhzzou3nmSsDLcJdCqV"], ["confirmation_sent_at", "2021-04-30 17:33:50.464118"], ["created_at", "2021-04-30 17:33:50.464027"], ["updated_at", "2021-04-30 17:33:50.464027"], ["jti", "23dc039b-f426-4401-b759-c977527f663e"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.3ms | Allocations: 109)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.7ms
+Delivered mail 608c3f7e74124_2ac53a204369f@elementalark.mail (1499.5ms)
+Date: Fri, 30 Apr 2021 12:33:50 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: chacha0069@protonmail.com
+Message-ID: <608c3f7e74124_2ac53a204369f@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome chacha0069@protonmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=xMhzzou3nmSsDLcJdCqV">Confirm my account</a></p>
+
+Completed 201 Created in 1704ms (Views: 0.2ms | ActiveRecord: 5.8ms | Allocations: 11236)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:34:47 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"chacha00w69@protonmail.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha00w69@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha00w69@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "chacha00w69@protonmail.com"], ["encrypted_password", "$2a$12$u3SD.a5BIQ.7it2lVaWP0u10UaTrpyhRtHVX14is7DBGvG0aj56Mq"], ["confirmation_token", "kGNjcSYN9pEMYwUfmrtx"], ["confirmation_sent_at", "2021-04-30 17:34:48.125135"], ["created_at", "2021-04-30 17:34:48.124924"], ["updated_at", "2021-04-30 17:34:48.124924"], ["jti", "8027b70e-9a23-4fdc-8c33-3619606362f1"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 2.2ms | Allocations: 819)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.8ms
+Delivered mail 608c3fb8309d0_2dad3a204884a@elementalark.mail (788.8ms)
+Date: Fri, 30 Apr 2021 12:34:48 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: chacha00w69@protonmail.com
+Message-ID: <608c3fb8309d0_2dad3a204884a@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome chacha00w69@protonmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=kGNjcSYN9pEMYwUfmrtx">Confirm my account</a></p>
+
+Completed 201 Created in 1090ms (Views: 0.4ms | ActiveRecord: 18.4ms | Allocations: 34013)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:35:19 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"chacha0069@protonmail.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 422 Unprocessable Entity in 199ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 4210)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:36:37 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"chacha00s69@protonmail.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha00s69@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha00s69@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "chacha00s69@protonmail.com"], ["encrypted_password", "$2a$12$x4jkfBNkb8vnlv/ywMsyvO4.z22Era8xjYh./oYMuOBvwyD3RYZqG"], ["confirmation_token", "HLxa9Myzg67ah452k6Pa"], ["confirmation_sent_at", "2021-04-30 17:36:37.586256"], ["created_at", "2021-04-30 17:36:37.586127"], ["updated_at", "2021-04-30 17:36:37.586127"], ["jti", "973aa064-5797-4494-a02e-d5157665899a"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.7ms | Allocations: 231)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 5.7ms
+Delivered mail 608c40259ffe2_2dad5190489b@elementalark.mail (856.6ms)
+Date: Fri, 30 Apr 2021 12:36:37 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: chacha00s69@protonmail.com
+Message-ID: <608c40259ffe2_2dad5190489b@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome chacha00s69@protonmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=HLxa9Myzg67ah452k6Pa">Confirm my account</a></p>
+
+Completed 201 Created in 1118ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 12438)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Destroy (2.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Destroy (3.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 4]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Destroy (2.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Destroy (2.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Destroy (1.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:37:49 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"chacha0069@protonmail.com", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "chacha0069@protonmail.com"], ["encrypted_password", "$2a$12$jtX3/RZYkqTrSzB9PSpYyuB8s7F1kJupz7hZtmqk6kDyWNrZfeT9S"], ["confirmation_token", "X-hbhqsm4fgZDfY7u7pG"], ["confirmation_sent_at", "2021-04-30 17:37:49.831494"], ["created_at", "2021-04-30 17:37:49.823148"], ["updated_at", "2021-04-30 17:37:49.823148"], ["jti", "d5ce3212-47d9-41df-8b76-74fc08dfb4ef"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 1.2ms | Allocations: 819)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 7.5ms
+Delivered mail 608c406dda556_2ea53a0c32610@elementalark.mail (782.0ms)
+Date: Fri, 30 Apr 2021 12:37:49 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: chacha0069@protonmail.com
+Message-ID: <608c406dda556_2ea53a0c32610@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome chacha0069@protonmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=X-hbhqsm4fgZDfY7u7pG">Confirm my account</a></p>
+
+Completed 201 Created in 1070ms (Views: 0.5ms | ActiveRecord: 2.8ms | Allocations: 34014)
+
+
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:41:38 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"chacha0069@protonmail.ch", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.ch"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.ch"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "chacha0069@protonmail.ch"], ["encrypted_password", "$2a$12$LmKVZFbgKuG0q2j3S7HMGeR8wFDF3TDYALArkP5zGYVJBNjjTT19m"], ["confirmation_token", "BZazm9LFCNrjkErVUxCj"], ["confirmation_sent_at", "2021-04-30 17:41:38.975282"], ["created_at", "2021-04-30 17:41:38.975190"], ["updated_at", "2021-04-30 17:41:38.975190"], ["jti", "40abd2f0-b0f0-40bc-95e8-b618383e7cee"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 10.3ms | Allocations: 231)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 26.5ms
+Delivered mail 608c41535ba8_2ea55118327d6@elementalark.mail (1014.0ms)
+Date: Fri, 30 Apr 2021 12:41:39 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: chacha0069@protonmail.ch
+Message-ID: <608c41535ba8_2ea55118327d6@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome chacha0069@protonmail.ch!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=BZazm9LFCNrjkErVUxCj">Confirm my account</a></p>
+
+Completed 201 Created in 1242ms (Views: 0.2ms | ActiveRecord: 4.0ms | Allocations: 12441)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Destroy (1.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Destroy (3.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-04-30 12:43:57 -0500
+Processing by Api::V1::RegistrationsController#create as */*
+  Parameters: {"email"=>"chacha0069@protonmail.ch", "password"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.ch"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chacha0069@protonmail.ch"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "chacha0069@protonmail.ch"], ["encrypted_password", "$2a$12$OzUzrgRPCpBONHnrrUyyRu9BfLPlbyWFfjZ8WyEd6C8PsPk3/.B3C"], ["confirmation_token", "hG5b2Bc1YcptD5aq5cRY"], ["confirmation_sent_at", "2021-04-30 17:43:58.124608"], ["created_at", "2021-04-30 17:43:58.124521"], ["updated_at", "2021-04-30 17:43:58.124521"], ["jti", "b97382af-e06b-4300-89dd-d9f255386bb4"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.3ms | Allocations: 110)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.4ms
+Delivered mail 608c41de217f6_2ea551b83288e@elementalark.mail (1870.1ms)
+Date: Fri, 30 Apr 2021 12:43:58 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: chacha0069@protonmail.ch
+Message-ID: <608c41de217f6_2ea551b83288e@elementalark.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome chacha0069@protonmail.ch!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=hG5b2Bc1YcptD5aq5cRY">Confirm my account</a></p>
+
+Completed 201 Created in 2072ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 14337)
+
+

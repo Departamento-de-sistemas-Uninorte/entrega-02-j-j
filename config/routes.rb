@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         delete '/auth/logout', to: 'sessions#destroy'
       end
       devise_scope :tweets do
-        get '/tweet', to: 'tweet#index'
+        get '/tweets', to: 'tweet#index'
         post '/tweet', to: 'tweet#create'
         get '/tweet/:id', to: 'tweet#show'
         delete '/tweet/:id', to: 'tweet#destroy'
