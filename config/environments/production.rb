@@ -9,7 +9,7 @@ Rails.application.configure do
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
-  # Rake tasks automatically ignore this option for performance.
+  # Rake tweets automatically ignore this option for performance.
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
@@ -23,8 +23,8 @@ Rails.application.configure do
     domain: "example.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: 'donotreply.twt@gmail.com',
-    password: 'twitterapp'
+    user_name: 'donotreply.gorjeo@gmail.com',
+    password: 'gorjeosechs'
   }
 
   config.action_mailer.default_url_options = { host: 'http://gorjeo.herokuapp.com/' }

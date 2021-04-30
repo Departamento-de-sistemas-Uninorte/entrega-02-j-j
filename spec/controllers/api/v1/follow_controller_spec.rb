@@ -106,13 +106,15 @@ RSpec.describe Api::V1::FollowController, "#create" do
 end
 
 RSpec.describe Api::V1::FollowController, "#index" do
-    let(:user) {create(:user, :confirmed)}
-    let(:userToFollow) {create(:user, :confirmed)}
+    
 
     context "Al mostrar una timeline: " do
+        let(:user) {create(:user, :confirmed)}
+        let(:userToFollow) {create(:user, :confirmed)}
         before do            
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
+            post :create, params: {id: userToFollow.id}
             get :index
         end
         it "debe de estar el usuario confirmado" do
