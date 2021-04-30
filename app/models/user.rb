@@ -10,7 +10,7 @@ class User < ApplicationRecord
   foreign_key: :user_id, 
   association_foreign_key: :follow_id
 
-  has_many :tasks
+  has_many :tweets
 
   validates :email, presence: true, uniqueness: true
   

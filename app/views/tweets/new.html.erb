@@ -1,6 +1,6 @@
 <h1>Crear tweet</h1>
 
-<%= form_with(model: Task, local: true) do |form| %>    
+<%= form_with(model: Tweet, local: true) do |form| %>    
     <%= form.label :descripción %>
     </br>
     <%= form.text_area :description %>
@@ -10,4 +10,4 @@
 
 <% end %>
 
-<%= link_to('View all task',tasks_path)  %>
+<%= link_to('View all tweet',tweets_path)  %>

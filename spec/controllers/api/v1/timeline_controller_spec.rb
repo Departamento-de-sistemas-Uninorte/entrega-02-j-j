@@ -11,7 +11,7 @@ RSpec.describe Api::V1::TimelineController, "#index" do
             Follow.new({user_id: userA.id, follow_id: user.id})
             Follow.new({user_id: userB.id, follow_id: userA.id})
             2.times do
-                Task.new({description: "Prueba", user_id: user.id})
+                Tweet.new({description: "Prueba", user_id: user.id})
             end
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"

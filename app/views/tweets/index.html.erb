@@ -1,0 +1,13 @@
+<h1>MIS TWEETS</h1>
+
+<% @tweets.each do |tweet| %>
+ <%=tweet.description %>   <%= link_to('Ver mas',tweet_path(tweet))  %>
+
+ <%if current_user.id==tweet.user_id%>
+    <%= link_to('Eliminar',tweet_path(tweet), method: :delete)  %>
+ <%end%>
+
+ </br>
+ <% end %>
+
+<%= link_to('Crear tweet',new_tweet_path)  %>

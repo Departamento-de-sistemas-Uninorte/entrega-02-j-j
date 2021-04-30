@@ -1,5 +1,5 @@
 FactoryBot.define do
-    factory :task do
+    factory :tweet do
       sequence(:id) { |n| "#{n}"}
       sequence(:description) {|n| "Prueba #{n}"}
       updated_at {Time.now}

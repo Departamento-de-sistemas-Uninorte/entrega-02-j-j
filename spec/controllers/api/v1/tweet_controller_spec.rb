@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::TaskController, "#create" do
+RSpec.describe Api::V1::TweetController, "#create" do
     let(:user) {create(:user, :confirmed)}
     context "Crear tweets y es valido:" do
-        let(:task) {create(:task, user: user)}
+        let(:tweet) {create(:tweet, user: user)}
         before do
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
-            post :create, params: {description: task.description}
+            post :create, params: {description: tweet.description}
         end
         it "debe de estar el usuario confirmado" do
             expect(user.confirmed?).to be true
@@ -23,14 +23,14 @@ RSpec.describe Api::V1::TaskController, "#create" do
             expect(json_response.keys).to  match_array(["info", "tweet"])
         end
         it "debe de guardarse al cumplir todo" do
-            expect(Task.last.description).to eq(task.description)
+            expect(Tweet.last.description).to eq(tweet.description)
         end
         it "debe de no exceder el limite de 280 caracteres" do
-            expect(task.description.length).to be < 281
+            expect(tweet.description.length).to be < 281
         end
     end
     context "Crear tweets y es invalido:" do
-        #let(:task) {create(:task, :invalid, user: user)}
+        #let(:tweet) {create(:tweet, :invalid, user: user)}
         before do
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
@@ -42,14 +42,14 @@ RSpec.describe Api::V1::TaskController, "#create" do
     end
 end
 
-RSpec.describe Api::V1::TaskController, "#index" do
+RSpec.describe Api::V1::TweetController, "#index" do
     let(:user) {create(:user, :confirmed)}
-    let(:task) {create(:task, user: user)}
+    let(:tweet) {create(:tweet, user: user)}
     context "Cuando se deba listar todos los tweets: " do
         before do
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
-            post :create, params: {description: task.description}
+            post :create, params: {description: tweet.description}
             get :index
         end
         it "debe de estar el usuario confirmado" do
@@ -68,15 +68,15 @@ RSpec.describe Api::V1::TaskController, "#index" do
     end
 end
 
-RSpec.describe Api::V1::TaskController, "#delete" do
+RSpec.describe Api::V1::TweetController, "#delete" do
     let(:user) {create(:user, :confirmed)}
-    let(:task) {create(:task, user: user)}
+    let(:tweet) {create(:tweet, user: user)}
     context "Cuando el tweet exista y se deba borrar: " do
         before do
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
-            post :create, params: {description: task.description}
-            delete :destroy, params: { id: task.id} 
+            post :create, params: {description: tweet.description}
+            delete :destroy, params: { id: tweet.id} 
         end
         it "debe de estar el usuario confirmado" do
             expect(user.confirmed?).to be true
@@ -96,7 +96,7 @@ RSpec.describe Api::V1::TaskController, "#delete" do
         before do
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
-            post :create, params: {description: task.description}
+            post :create, params: {description: tweet.description}
             delete :destroy, params: { id: -1} 
         end
         it "debe de estar el usuario confirmado" do
@@ -111,15 +111,15 @@ RSpec.describe Api::V1::TaskController, "#delete" do
     end
 end
 
-RSpec.describe Api::V1::TaskController, "#show" do
+RSpec.describe Api::V1::TweetController, "#show" do
     let(:user) {create(:user, :confirmed)}
-    let(:task) {create(:task, user: user)}
+    let(:tweet) {create(:tweet, user: user)}
     context "Cuando se muestre un tweet: " do
         before do
             token = user.generate_jwt(user.jti)
             request.headers["Authorization"] = "#{token}"
-            post :create, params: {description: task.description}
-            get :show, params: { id: task.id}
+            post :create, params: {description: tweet.description}
+            get :show, params: { id: tweet.id}
         end
         it "debe de estar el usuario confirmado" do
             expect(user.confirmed?).to be true
