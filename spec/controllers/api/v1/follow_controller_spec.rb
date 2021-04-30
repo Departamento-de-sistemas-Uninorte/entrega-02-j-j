@@ -21,10 +21,10 @@ RSpec.describe Api::V1::FollowController, "#create" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP success code" do
+        it "debe de retornar HTTP exitoso" do
             expect(response).to have_http_status(:success)
         end
-        it "should return timeline in JSON body" do
+        it "debe de retornar el usuario seguido en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["info", "user"])
         end
@@ -49,10 +49,10 @@ RSpec.describe Api::V1::FollowController, "#create" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP error code" do
+        it "debe de retornar codigo HTTP de error" do
             expect(response).to have_http_status(:unprocessable_entity)
         end
-        it "should return timeline in JSON body" do
+        it "debe de retornar error en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["error"])
         end
@@ -74,10 +74,10 @@ RSpec.describe Api::V1::FollowController, "#create" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP error code" do
+        it "debe de retornar codigo HTTP de error" do
             expect(response).to have_http_status(:unprocessable_entity)
         end
-        it "should return timeline in JSON body" do
+        it "debe de retornar error en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["error"])
         end
@@ -94,10 +94,10 @@ RSpec.describe Api::V1::FollowController, "#create" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP error code" do
+        it "debe de retornar codigo HTTP de error" do
             expect(response).to have_http_status(404)
         end
-        it "should return timeline in JSON body" do
+        it "debe de retornar error en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["error"])
         end
@@ -108,7 +108,7 @@ end
 RSpec.describe Api::V1::FollowController, "#index" do
     
 
-    context "Al mostrar una timeline: " do
+    context "Al mostrar los seguidos: " do
         let(:user) {create(:user, :confirmed)}
         let(:userToFollow) {create(:user, :confirmed)}
         before do            
@@ -123,10 +123,10 @@ RSpec.describe Api::V1::FollowController, "#index" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP success code" do
+        it "debe de retornar HTTP exitoso" do
             expect(response).to have_http_status(:success)
         end
-        it "should return timeline in JSON body" do
+        it "debe de retornar los seguidos en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["following"])
         end

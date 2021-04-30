@@ -21,7 +21,7 @@ RSpec.describe TweetsController, "#create" do
             sign_in user
         end
         
-        it "debe de retornar el tweets" do
+        it "debe de retornar de recargar la pagina" do
             expect(subject).to redirect_to(new_tweet_path)
         end
     end
@@ -36,7 +36,7 @@ RSpec.describe TweetsController, "#index" do
             sign_in user
             get :index
         end
-        it "debe de retornar el tweets" do
+        it "debe de retornar los tweets" do
             expect(response).to have_http_status(:success)
         end
 end
@@ -51,7 +51,7 @@ RSpec.describe TweetsController, "#delete" do
             sign_in user
             delete :destroy, params:{id: tweet.id}
         end        
-        it "debe de retornar el tweets" do
+        it "debe de retornar 302" do
             expect(response).to have_http_status(302)
         end
     end
