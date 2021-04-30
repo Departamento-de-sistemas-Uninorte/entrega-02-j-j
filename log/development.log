@@ -2865,3 +2865,54 @@ Processing by Api::V1::FollowController#index as */*
 Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 12324)
 
 
+Started POST "/users/sign_in" for ::1 at 2021-04-30 14:28:17 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ravam0069@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ravam0069@hotmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 302ms (ActiveRecord: 2.7ms | Allocations: 2823)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ravam0069@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 233)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1181)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 4190)
+Completed 200 OK in 249ms (Views: 36.0ms | ActiveRecord: 0.0ms | Allocations: 5029)
+
+
+Started GET "/api/v1/following" for 127.0.0.1 at 2021-04-30 14:33:17 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/following"):
+  
+Started GET "/api/v1/following" for 127.0.0.1 at 2021-04-30 14:33:48 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::FollowController#index as */*
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:10:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:11:in `block in index'
+Completed 200 OK in 79ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 14001)
+
+
+Started GET "/api/v1/follow" for 127.0.0.1 at 2021-04-30 14:33:55 -0500
+Processing by Api::V1::FollowController#index as */*
+  Parameters: {"description"=>"Prueba 1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/api_controller.rb:19:in `process_token'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:10:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/follow_controller.rb:11:in `block in index'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2058)
+
+

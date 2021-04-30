@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
       devise_scope :follow do
         post '/follow/:id', to: 'follow#create'
+        get '/following', to: 'follow#index'
       end
 
       devise_scope :user do
