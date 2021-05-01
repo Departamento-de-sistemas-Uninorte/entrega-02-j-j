@@ -19,10 +19,10 @@ RSpec.describe Api::V1::FollowersController, "#index" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP success code" do
+        it "debe de retornar HTTP exitoso" do
             expect(response).to have_http_status(:success)
         end
-        it "should return timeline in JSON body" do
+        it "debe de retornar los seguidores en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["followers"])
         end

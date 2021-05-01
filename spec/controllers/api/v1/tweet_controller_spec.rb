@@ -15,10 +15,10 @@ RSpec.describe Api::V1::TweetController, "#create" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP success code" do
+        it "debe de retornar HTTP exitoso" do
             expect(response).to have_http_status(:success)
         end
-        it "should return Tweet in JSON body" do
+        it "debe de retornar el tweet en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["info", "tweet"])
         end
@@ -58,10 +58,10 @@ RSpec.describe Api::V1::TweetController, "#index" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP success code" do
+        it "debe de retornar HTTP exitoso" do
             expect(response).to have_http_status(:success)
         end
-        it "should return Tweet in JSON body" do
+        it "debe de retornar el tweet en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.first.keys).to  match_array(["id", "tittle","description","user_id","created_at","updated_at"])
         end
@@ -84,10 +84,10 @@ RSpec.describe Api::V1::TweetController, "#delete" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP success code" do
+        it "debe de retornar HTTP exitoso" do
             expect(response).to have_http_status(:success)
         end
-        it "should return Tweet in JSON body" do
+        it "debe de retornar el tweet en el JSON" do
             json_response = response.body
             expect(json_response).to  match("Tweet borrado")
         end
@@ -127,10 +127,10 @@ RSpec.describe Api::V1::TweetController, "#show" do
         it "debe de tirar error al no tener un usuario loggeado" do
             expect(user.id).to be_kind_of(Numeric)
         end
-        it "should return HTTP success code" do
+        it "debe de retornar HTTP exitoso" do
             expect(response).to have_http_status(:success)
         end
-        it "should return Tweet in JSON body" do
+        it "debe de retornar el tweet en el JSON" do
             json_response = JSON.parse(response.body)
             expect(json_response.keys).to  match_array(["id", "tittle","description","user_id","created_at","updated_at"])
         end
