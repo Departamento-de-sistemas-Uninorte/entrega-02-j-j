@@ -1,0 +1,13 @@
+<h1>Crear tweet</h1>
+
+<%= form_with(model: Tweet, local: true) do |form| %>    
+    <%= form.label :descripción %>
+    </br>
+    <%= form.text_area :description %>
+    </br>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%= form.submit "Crear"%>
+
+<% end %>
+
+<%= link_to('View all tweet',tweets_path)  %>

@@ -1,27 +1,46 @@
 module Api
     module V1
         class ApiController < ActionController::API
-            skip_before_action :verify_authenticity_token
+            respond_to :json
+            before_action :process_token
+            private
 
-            def not_found
-                render json: { error: 'not_found' }
-            end
-            
-            def authorize_request
-                header = request.headers['Authorization']
-                header = header.split(' ').last if header
-                begin
-                  @decoded = JsonWebToken.decode(header)
-
-                  #To create Tweets
-                  @current_user = User.find(@decoded[:user_id])
-                rescue ActiveRecord::RecordNotFound => e
-                  render json: { errors: e.message }, status: :unauthorized
-                rescue JWT::DecodeError => e
-                  render json: { errors: e.message }, status: :unauthorized
+            # Check for auth headers - if present, decode or send unauthorized response (called always to allow current_user)
+            def process_token
+                if request.headers['Authorization'].present?
+                    
+                    begin
+                        jwt_payload = JWT.decode(request.headers['Authorization'].split(" ")[0], Rails.application.secret_key_base).first
+                        @current_user_id = jwt_payload['id']
+                    rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => error
+                        #render json: {error: error.message}
+                        render json: {error: "Token erronea"}, status: 401
+                    end
+                    unless(User.jwt_revoked?(jwt_payload, User.find(jwt_payload['id'])))
+                        @current_user_id = jwt_payload['id']
+                     else
+                        @current_user_id = nil
+                        render json: "Token expirada", status: 401
+                    end
+                else
+                    render json: "La petición no contiene el header de 'Authorization'", status: 401
                 end
             end
 
+            # If user has not signed in, return unauthorized response (called only when auth is needed)
+            def authenticate_user!(options = {})
+                head :unauthorized unless signed_in?
+            end
+
+            # set Devise's current_user using decoded JWT instead of session
+            def current_user
+                @current_user ||= super || User.find(@current_user_id)
+            end
+
+            # check that authenticate_user has successfully returned @current_user_id (user is authenticated)
+            def signed_in?
+                @current_user_id.present?
+            end
         end
     end
 end

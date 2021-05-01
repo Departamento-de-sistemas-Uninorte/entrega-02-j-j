@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_235559) do
+ActiveRecord::Schema.define(version: 2021_04_30_170209) do
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "follows", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follow_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_id", "user_id"], name: "index_follows_on_follow_id_and_user_id", unique: true
+    t.index ["user_id", "follow_id"], name: "index_follows_on_user_id_and_follow_id", unique: true
+  end
+
+  create_table "tweets", force: :cascade do |t|
     t.string "tittle"
     t.text "description"
     t.integer "user_id"
@@ -34,6 +43,8 @@ ActiveRecord::Schema.define(version: 2021_03_03_235559) do
     t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "jti", null: false
+    t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

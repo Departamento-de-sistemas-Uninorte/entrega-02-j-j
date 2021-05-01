@@ -6,8 +6,6 @@ Jorge Benavides - 200107351
 
 Jose Hurtado - 200107806
 
-< Link a la API en el servidor (Heroku o el servicio de tu preferencia) >
+API: https://gorjeo.herokuapp.com/api/v1/
 
-< Link a la documentación >
-
-Información relevanten
+Documentación: https://documenter.getpostman.com/view/14934539/TzCMeTnv
