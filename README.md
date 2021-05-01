@@ -1,6 +1,5 @@
 # lab-02
-* IMPORTANTE * !
-* 
+Integrantes:
 
 Jorge Benavides - 200107351
 
